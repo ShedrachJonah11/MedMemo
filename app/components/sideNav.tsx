@@ -89,7 +89,7 @@ export default function Nav() {
             startContent={<BiHomeAlt size={20} />}
             key="dashboard"
             aria-label="dashboard"
-            href="/"
+            href="/dashboard"
           >
             <p
               className={`text-base  font-semibold transition-[width] transform ease-in-out block duration-300 ${
@@ -101,7 +101,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/Record"
+              pathname === "/dashboard/record"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -117,7 +117,7 @@ export default function Nav() {
               />
             }
             key="record"
-            href="/record"
+            href="/dashboard/record"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
