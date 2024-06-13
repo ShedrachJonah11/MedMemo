@@ -80,7 +80,7 @@ export default function Nav() {
         >
           <ListboxItem
             className={`${
-              pathname === "/"
+              pathname === "/dashboard"
                 ? "bg-[#007BFF1A] text-[#004085] "
                 : "text-black bg-white"
             } ${
@@ -129,7 +129,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/upload"
+              pathname === "/dashboard/upload"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -145,7 +145,7 @@ export default function Nav() {
               />
             }
             key="upload"
-            href="/upload"
+            href="/dashboard/upload"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
