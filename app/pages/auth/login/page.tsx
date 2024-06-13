@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { Input, Button, Image } from "@nextui-org/react";
@@ -143,3 +144,12 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+=======
+import React from "react";
+
+function page() {
+  return <div></div>;
+}
+
+export default page;
+>>>>>>> 6d4774f7752270e52ec9b3a43a32b87a29963c65
