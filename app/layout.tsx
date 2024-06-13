@@ -6,7 +6,7 @@ import Nav from "./components/sideNav";
 import { Providers } from "./providers/appProvider";
 import { Header } from "./components/Header";
 import { Suspense } from "react";
-import { redirect, usePathname, useRouter } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
