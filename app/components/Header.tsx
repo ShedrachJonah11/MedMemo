@@ -54,6 +54,17 @@ export function Header() {
         return "Dashboard";
     }
   }
+  const closeNotificationPopover = () => {
+    const escapeKeyEvent = new KeyboardEvent("keydown", {
+      key: "Escape",
+      keyCode: 27,
+      which: 27,
+      bubbles: true,
+      code: "Escape",
+    });
+    document.dispatchEvent(escapeKeyEvent);
+  };
+
   const nav = useCallback(() => {
     return (
       <Navbar
@@ -84,7 +95,7 @@ export function Header() {
               isOpen={notificationIsOpen}
               onOpenChange={(open) => setNotificationIsOpen(open)}
               key={"notification"}
-              showArrow
+              showArrow={false}
               offset={10}
               placement="bottom-end"
               backdrop={"blur"}
@@ -110,7 +121,13 @@ export function Header() {
                       >
                         Notifications
                       </p>
-                      <Button isIconOnly className="bg-transparent">
+                      <Button
+                        isIconOnly
+                        className="bg-transparent"
+                        onPress={() => {
+                          setNotificationIsOpen(false);
+                        }}
+                      >
                         <IoMdClose color="black" size={24} />
                       </Button>
                     </div>
@@ -130,5 +147,6 @@ export function Header() {
       </Navbar>
     );
   }, [isMenuOpen, pageName, pathname]);
+
   return nav();
 }
