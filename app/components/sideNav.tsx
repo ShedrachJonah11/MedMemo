@@ -15,7 +15,6 @@ import { usePathname } from "next/navigation";
 export default function Nav() {
   const [showOnlyIcon, setShowOnlyIcon] = useState(false);
   const pathname = usePathname();
-  console.log(showOnlyIcon);
   useEffect(() => {
     localStorage.setItem("showOnlyIcon", JSON.stringify(showOnlyIcon));
   }, [showOnlyIcon]);
