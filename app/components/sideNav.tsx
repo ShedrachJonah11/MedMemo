@@ -16,7 +16,6 @@ export default function Nav() {
   const [showOnlyIcon, setShowOnlyIcon] = useState(false);
   const pathname = usePathname();
   console.log(showOnlyIcon);
-  // Retrieve the state from local storage when the component mounts
   useEffect(() => {
     localStorage.setItem("showOnlyIcon", JSON.stringify(showOnlyIcon));
   }, [showOnlyIcon]);
