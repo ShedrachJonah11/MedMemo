@@ -185,7 +185,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/sessions"
+              pathname === "/dashboard/sessions"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -201,7 +201,7 @@ export default function Nav() {
               />
             }
             key="sessions"
-            href="/sessions"
+            href="/dashboard/sessions"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
