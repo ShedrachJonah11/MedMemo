@@ -58,7 +58,7 @@ export function Header() {
         }}
         suppressHydrationWarning
       >
-        <NavbarContent>
+        {/* <NavbarContent>
           <NavbarBrand>
             <div className="w-full flex justify-between items-center">
               <div>
@@ -68,7 +68,7 @@ export function Header() {
               </div>
             </div>
           </NavbarBrand>
-        </NavbarContent>
+        </NavbarContent> */}
 
         <NavbarContent justify="end">
           <div className="flex gap-6 max-[200px] justify-between items-center">

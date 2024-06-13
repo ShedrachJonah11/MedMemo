@@ -41,17 +41,16 @@ export default function Nav() {
       } h-screen px-4 py-5 transition-[width] transform ease-in-out w-full duration-300`}
     >
       <div className="flex justify-between items-center pl-2 transition-[width] transform ease-in-out duration-300 ">
-        <Link
-          href="/"
-          className={`${showOnlyIcon ? "hidden" : "block"}`}
-        ></Link>
-        <Button
+        <Link href="/" className={`${showOnlyIcon ? "hidden" : "block"}`}>
+          <p className="text-black">LOGO</p>
+        </Link>
+        {/* <Button
           isIconOnly
           className="bg-white"
           onClick={() => setShowOnlyIcon(!showOnlyIcon)}
         >
           <Image src={"/hamburger.svg"} alt="icon" width={40} height={40} />
-        </Button>
+        </Button> */}
       </div>
       <Spacer y={4}></Spacer>
       <Listbox
@@ -114,6 +113,10 @@ export default function Nav() {
                 width={40}
                 height={40}
                 className="w-[20px] h-[20px]"
+                style={{
+                  filter: "invert(100%)",
+                  background: "#004085",
+                }}
               />
             }
             key="record"
