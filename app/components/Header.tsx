@@ -24,6 +24,7 @@ import { LuUsers } from "react-icons/lu";
 import { TbBell, TbSmartHome } from "react-icons/tb";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
+import { SearchNormal1, Notification } from "iconsax-react";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -52,7 +53,7 @@ export function Header() {
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
-        className="px-0 bg-transparent"
+        className="px-5 bg-white h-[64px] "
         classNames={{
           wrapper: ["px-0", "bg-transparent"],
         }}
@@ -70,193 +71,12 @@ export function Header() {
           </NavbarBrand>
         </NavbarContent> */}
 
-        <NavbarContent justify="end">
-          <div className="flex gap-6 max-[200px] justify-between items-center">
-            <Dropdown placement="bottom-start">
-              <DropdownTrigger suppressHydrationWarning>
-                <Button
-                  isIconOnly
-                  className="bg-transparent w-[50px] h-[50px] p-3"
-                >
-                  <Badge color="danger" content={5} shape="circle">
-                    <TbBell size={30} color="#4B465C" />
-                  </Badge>
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="User Actions" variant="flat">
-                <DropdownItem key="profile">New notification</DropdownItem>
-                <DropdownItem key="New notification">
-                  New notification
-                </DropdownItem>
-
-                <DropdownItem key="system">New notification</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            <Dropdown placement="bottom-start">
-              <DropdownTrigger suppressHydrationWarning>
-                <Button
-                  isIconOnly
-                  className="bg-transparent w-[50px] h-[50px] p-3"
-                >
-                  <Badge
-                    color="success"
-                    content={""}
-                    shape="circle"
-                    placement="bottom-right"
-                    size="sm"
-                  >
-                    <Avatar
-                      src="https://th.bing.com/th/id/OIP.DUflnJMpmj75BYf1WR6ZEwHaEK?rs=1&pid=ImgDetMain"
-                      size="md"
-                    ></Avatar>
-                  </Badge>
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="User Actions" variant="flat">
-                <DropdownItem key="profile" className="h-14 gap-2">
-                  <p className="font-bold">Signed in as</p>
-                  <p className="font-bold">giftgo@gmail.com</p>
-                </DropdownItem>
-
-                <DropdownItem
-                  key="logout"
-                  color="danger"
-                  onClick={() => {
-                    signOut();
-                  }}
-                >
-                  Log Out
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-
-            <NavbarMenuToggle
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              className="md:hidden w-[50px] h-[50px]"
-            />
+        <NavbarContent justify="end" className="ml-auto">
+          <div className="flex justify-normal gap-8">
+            <SearchNormal1 size="24" color="black" />
+            <Notification size="24" color="black" />
           </div>
         </NavbarContent>
-        <NavbarMenu className="flex flex-col gap-3 text-xl text-black">
-          <NavbarItem>
-            <p className="px-3 py-1 opacity-60">MAIN MENU</p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/dashboard" ? "bg-[#F3F4F8]" : "opacity-60"
-            }   transition-[width] transform ease-in-out duration-300 `}
-            as={Link}
-            key="dashboard"
-            aria-label="dashboard"
-            href="/admin/dashboard"
-          >
-            <TbSmartHome size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-lg font-semibold `}
-            >
-              Dashboard
-            </p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/order-management"
-                ? "bg-[#F3F4F8]"
-                : "opacity-60"
-            }   transition-[width] transform ease-in-out  duration-300`}
-            as={Link}
-            key="order-management"
-            href="/admin/order-management"
-          >
-            <IoCartOutline size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
-            >
-              Order Management
-            </p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/customers" ? "bg-[#F3F4F8]" : "opacity-60"
-            }   transition-[width] transform ease-in-out  duration-300`}
-            as={Link}
-            key="customers"
-            href="/admin/customers"
-          >
-            <LuUsers size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold   transition-[width] transform ease-in-out  duration-300`}
-            >
-              {" "}
-              Customers
-            </p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/transactions" ? "bg-[#F3F4F8]" : "opacity-60"
-            }  transition-[width] transform ease-in-out  duration-300`}
-            key="transactions"
-            as={Link}
-            href="/admin/transactions"
-          >
-            <FiFileText size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
-            >
-              Transactions
-            </p>
-          </NavbarItem>
-
-          <NavbarItem>
-            <p className="px-3 py-1 opacity-60">PRODUCTS</p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/add-categories"
-                ? "bg-[#F3F4F8]"
-                : "opacity-60"
-            }   transition-[width] transform ease-in-out  duration-300`}
-            key="add-categories"
-            as={Link}
-            href="/admin/add-categories"
-          >
-            {" "}
-            <Image src={"/box-add.svg"} alt="box" width={34} height={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
-            >
-              Add Categories
-            </p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/add-products" ? "bg-[#F3F4F8]" : "opacity-60"
-            }   transition-[width] transform ease-in-out  duration-300`}
-            key="add-products"
-            as={Link}
-            href="/admin/add-products"
-          >
-            <IoMdAddCircleOutline size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
-            >
-              Add Products
-            </p>
-          </NavbarItem>
-          <NavbarItem
-            className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black ${
-              pathname === "/admin/product-list" ? "bg-[#F3F4F8]" : "opacity-60"
-            }   transition-[width] transform ease-in-out  duration-300`}
-            key="product-list"
-            as={Link}
-            href="/admin/<FiBox size={34} />product-list"
-          >
-            <FiBox size={34} />
-            <p
-              className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
-            >
-              product List
-            </p>
-          </NavbarItem>
-        </NavbarMenu>
       </Navbar>
     );
   },[isMenuOpen, pageName, pathname])
