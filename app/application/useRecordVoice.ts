@@ -38,4 +38,14 @@ export const useRecordVoice = () => {
 
     setMediaRecorder(mediaRecorder);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then(initialMediaRecorder);
+    }
+  }, []);
+
+  
 };
