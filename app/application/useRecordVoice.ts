@@ -12,4 +12,11 @@ export const useRecordVoice = () => {
       setRecording(true);
     }
   };
+
+  const stopRecording = () => {
+    if (mediaRecorder) {
+      mediaRecorder.stop();
+      setRecording(false);
+    }
+  };
 };
