@@ -1,27 +1,22 @@
-"use client";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Nav from "./components/sideNav";
 import { Providers } from "./providers/appProvider";
-import { Header } from "./components/Header";
 import { Suspense } from "react";
-import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "Medmemo",
-//   description: "make medical record keeping easier",
-//   icons: "/icon.svg",
-// };
+export const metadata: Metadata = {
+  title: "Medmemo",
+  description: "make medical record keeping easier",
+  icons: "/icon.svg",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
   return (
     <html lang="en">
       <body
@@ -29,20 +24,9 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <div className="flex bg-[#FAFAFA]" suppressHydrationWarning>
-            {pathname !== "/auth/login" && <Nav />}
-            <div className="h-screen w-full overflow-y-auto">
-              <div className=" flex-col">
-                {pathname !== "/auth/login" && <Header />}
-                <div
-                  suppressHydrationWarning
-                  className="pt-6 sm:px-6 px-3 flex"
-                >
+         
                   <Suspense>{children}</Suspense>
-                </div>
-              </div>
-            </div>
-          </div>
+               
         </Providers>
       </body>
     </html>

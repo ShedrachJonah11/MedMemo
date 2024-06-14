@@ -2,12 +2,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../globals.css";
-import Nav from "../../components/sideNav";
-import { Providers } from "../../providers/appProvider";
-import { Header } from "../../components/Header";
+
 import { Suspense } from "react";
-import { redirect, usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { Providers } from "@/app/providers/appProvider";
+import Nav from "@/app/components/sideNav";
+import { Header } from "@/app/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -30,11 +31,14 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex bg-[#FAFAFA]" suppressHydrationWarning>
-            {pathname !== "/admin/auth/login" && <Nav />}
+            {pathname !== "/auth/login" && <Nav />}
             <div className="h-screen w-full overflow-y-auto">
-              <div className="sm:px-6 px-3 flex flex-col">
-                {pathname !== "/admin/auth/login" && <Header />}
-                <div suppressHydrationWarning className="pt-6">
+              <div className=" flex-col">
+                {pathname !== "/auth/login" && <Header />}
+                <div
+                  suppressHydrationWarning
+                  className="pt-6 sm:px-6 px-3 flex"
+                >
                   <Suspense>{children}</Suspense>
                 </div>
               </div>
