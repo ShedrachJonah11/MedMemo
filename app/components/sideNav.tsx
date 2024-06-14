@@ -16,9 +16,6 @@ import { DocumentUpload, Microphone, People, Refresh2 } from "iconsax-react";
 export default function Nav() {
   const [showOnlyIcon, setShowOnlyIcon] = useState(false);
   const pathname = usePathname();
-  console.log(showOnlyIcon);
-  // Retrieve the state from local storage when the component mounts
-  // Store the state in local storage whenever it changes
   useEffect(() => {
     localStorage.setItem("showOnlyIcon", JSON.stringify(showOnlyIcon));
   }, [showOnlyIcon]);
@@ -80,7 +77,7 @@ export default function Nav() {
         >
           <ListboxItem
             className={`${
-              pathname === "/"
+              pathname === "/dashboard"
                 ? "bg-[#007BFF1A] text-[#004085] "
                 : "text-black bg-white"
             } ${
@@ -89,7 +86,7 @@ export default function Nav() {
             startContent={
               <BiHomeAlt
                 size={20}
-                color={pathname === "/" ? "#004085" : "#71839b"}
+                color={pathname === "/dashboard" ? "#004085" : "#71839b"}
               />
             }
             endContent={
@@ -99,7 +96,7 @@ export default function Nav() {
             }
             key="dashboard"
             aria-label="dashboard"
-            href="/"
+            href="/dashboard"
           >
             <p
               className={`text-base w-full font-semibold transition-[width] transform ease-in-out block duration-300 ${
@@ -111,7 +108,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/record"
+              pathname === "/dashboard/record"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -124,7 +121,7 @@ export default function Nav() {
               />
             }
             key="record"
-            href="/record"
+            href="/dashboard/record"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
@@ -136,7 +133,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/upload"
+              pathname === "/dashboard/upload"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -149,7 +146,7 @@ export default function Nav() {
               />
             }
             key="upload"
-            href="/upload"
+            href="/dashboard/upload"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
@@ -161,7 +158,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/patients"
+              pathname === "/dashboard/patients"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -174,7 +171,7 @@ export default function Nav() {
               />
             }
             key="patients"
-            href="/patients"
+            href="/dashboard/patients"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
@@ -186,7 +183,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/sessions"
+              pathname === "/dashboard/sessions"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -199,7 +196,7 @@ export default function Nav() {
               />
             }
             key="sessions"
-            href="/sessions"
+            href="/dashboard/sessions"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${

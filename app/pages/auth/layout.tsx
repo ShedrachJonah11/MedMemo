@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <Providers>
-              <Suspense>{children}</Suspense>    
+      <Suspense>{children}</Suspense>
     </Providers>
   );
 }

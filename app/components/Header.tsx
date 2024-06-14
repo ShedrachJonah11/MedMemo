@@ -44,27 +44,8 @@ export function Header() {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
   const pathname = usePathname();
-  function pageName() {
-    switch (pathname) {
-      case "/admin/dashboard":
-        return "Dashboard";
-      case "/admin/order-management":
-        return "Order Management";
-      case "/admin/customers":
-        return "Customers";
-      case "/admin/transactions":
-        return "Transactions";
-      case "/admin/add-categories":
-        return "Add Categories";
-      case "/admin/add-products":
-        return "Add Products";
-      case "/admin/product-list":
-        return "Product List";
-      default:
-        return "Dashboard";
-    }
-  }
 
+ 
   const nav = useCallback(() => {
     return (
       <div>
@@ -254,7 +235,7 @@ export function Header() {
         </Modal>
       </div>
     );
-  }, [isMenuOpen, pageName, pathname]);
+  }, [isMenuOpen, pathname]);
 
   return nav();
 }
