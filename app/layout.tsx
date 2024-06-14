@@ -30,11 +30,14 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex bg-[#FAFAFA]" suppressHydrationWarning>
-            {pathname !== "/admin/auth/login" && <Nav />}
+            {pathname !== "/auth/login" && <Nav />}
             <div className="h-screen w-full overflow-y-auto">
-              <div className="sm:px-6 px-3 flex flex-col">
-                {pathname !== "/admin/auth/login" && <Header />}
-                <div suppressHydrationWarning className="pt-6">
+              <div className=" flex-col">
+                {pathname !== "/auth/login" && <Header />}
+                <div
+                  suppressHydrationWarning
+                  className="pt-6 sm:px-6 px-3 flex"
+                >
                   <Suspense>{children}</Suspense>
                 </div>
               </div>

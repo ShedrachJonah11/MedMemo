@@ -11,6 +11,7 @@ import { BiHomeAlt } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DocumentUpload, Microphone, People, Refresh2 } from "iconsax-react";
 
 export default function Nav() {
   const [showOnlyIcon, setShowOnlyIcon] = useState(false);
@@ -38,17 +39,16 @@ export default function Nav() {
       } h-screen px-4 py-5 transition-[width] transform ease-in-out w-full duration-300`}
     >
       <div className="flex justify-between items-center pl-2 transition-[width] transform ease-in-out duration-300 ">
-        <Link
-          href="/"
-          className={`${showOnlyIcon ? "hidden" : "block"}`}
-        ></Link>
-        <Button
+        <Link href="/" className={`${showOnlyIcon ? "hidden" : "block"}`}>
+          <p className="text-black">LOGO</p>
+        </Link>
+        {/* <Button
           isIconOnly
           className="bg-white"
           onClick={() => setShowOnlyIcon(!showOnlyIcon)}
         >
           <Image src={"/hamburger.svg"} alt="icon" width={40} height={40} />
-        </Button>
+        </Button> */}
       </div>
       <Spacer y={4}></Spacer>
       <Listbox
@@ -82,14 +82,24 @@ export default function Nav() {
                 : "text-black bg-white"
             } ${
               showOnlyIcon ? "gap-0 " : "px-2"
-            } transition-[width] transform ease-in-out duration-300 h-[44px] flex justify-normal gap-4 `}
-            startContent={<BiHomeAlt size={20} />}
+            } transition-[width] transform ease-in-out duration-300 h-[44px] rounded-[0.25rem] flex justify-normal gap-4 `}
+            startContent={
+              <BiHomeAlt
+                size={20}
+                color={pathname === "/dashboard" ? "#004085" : "#71839b"}
+              />
+            }
+            endContent={
+              <div className="min-w-5 h-5 text-white text-center text-xs rounded-2xl bg-[#007BFF] ml-auto">
+                <span className="m-auto text-center  leading-relaxed">2</span>
+              </div>
+            }
             key="dashboard"
             aria-label="dashboard"
             href="/dashboard"
           >
             <p
-              className={`text-base  font-semibold transition-[width] transform ease-in-out block duration-300 ${
+              className={`text-base w-full font-semibold transition-[width] transform ease-in-out block duration-300 ${
                 showOnlyIcon ? "w-[0] px-0" : ""
               }transition-[width] transform ease-in-out duration-300`}
             >
@@ -103,14 +113,11 @@ export default function Nav() {
                 : "text-black bg-white"
             } ${
               showOnlyIcon ? "pr-0" : "px-2"
-            } transition-[width] transform ease-in-out duration-300 h-[44px] flex justify-normal gap-4`}
+            } transition-[width] transform ease-in-out duration-300 h-[44px] rounded-[0.25rem] flex justify-normal gap-4`}
             startContent={
-              <Image
-                src={"/record.svg"}
-                alt="icon"
-                width={40}
-                height={40}
-                className="w-[20px] h-[20px]"
+              <Microphone
+                size="20"
+                color={pathname === "/Record" ? "#004085" : "#71839b"}
               />
             }
             key="record"
@@ -131,14 +138,11 @@ export default function Nav() {
                 : "text-black bg-white"
             } ${
               showOnlyIcon ? "pr-0" : "px-2"
-            } transition-[width] transform ease-in-out duration-300 h-[44px] flex justify-normal gap-4`}
+            } transition-[width] transform ease-in-out duration-300 h-[44px] rounded-[0.25rem] flex justify-normal gap-4`}
             startContent={
-              <Image
-                src={"/upload.svg"}
-                alt="icon"
-                width={40}
-                height={40}
-                className="w-[20px] h-[20px]"
+              <DocumentUpload
+                size="20"
+                color={pathname === "/upload" ? "#004085" : "#71839b"}
               />
             }
             key="upload"
@@ -159,14 +163,11 @@ export default function Nav() {
                 : "text-black bg-white"
             } ${
               showOnlyIcon ? "pr-0" : "px-2"
-            } transition-[width] transform ease-in-out duration-300 h-[44px] flex justify-normal gap-4`}
+            } transition-[width] transform ease-in-out duration-300 h-[44px] rounded-[0.25rem] flex justify-normal gap-4`}
             startContent={
-              <Image
-                src={"/patients.svg"}
-                alt="icon"
-                width={40}
-                height={40}
-                className="w-[20px] h-[20px]"
+              <People
+                size="20"
+                color={pathname === "/patients" ? "#004085" : "#71839b"}
               />
             }
             key="patients"
@@ -187,14 +188,11 @@ export default function Nav() {
                 : "text-black bg-white"
             } ${
               showOnlyIcon ? "pr-0" : "px-2"
-            } transition-[width] transform ease-in-out duration-300 h-[44px] flex justify-normal gap-4`}
+            } transition-[width] transform ease-in-out duration-300 h-[44px] rounded-[0.25rem] flex justify-normal gap-4`}
             startContent={
-              <Image
-                src={"/sessions.svg"}
-                alt="icon"
-                width={40}
-                height={40}
-                className="w-[20px] h-[20px]"
+              <Refresh2
+                size="20"
+                color={pathname === "/sessions" ? "#004085" : "#71839b"}
               />
             }
             key="sessions"
