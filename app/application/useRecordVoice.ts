@@ -19,4 +19,23 @@ export const useRecordVoice = () => {
       setRecording(false);
     }
   };
+
+  const initialMediaRecorder = (steam: any) => {
+    const mediaRecorder = new MediaRecorder(steam);
+
+    mediaRecorder.onstart = () => {
+      chunks.current = [];
+    };
+
+    mediaRecorder.ondataavailable = (ev) => {
+      chunks.current.push(ev.data);
+    };
+
+    mediaRecorder.onstop = () => {
+      const audioBlob = new Blob(chunks.current, { type: "audio/wav" });
+      setRecordingBlob(audioBlob);
+    };
+
+    setMediaRecorder(mediaRecorder);
+  };
 };
