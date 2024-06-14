@@ -34,7 +34,7 @@ export default function Nav() {
   return (
     <div
       suppressHydrationWarning
-      className={`flex flex-col gap-2 bg-white sm:max-w-[260px]  ${
+      className={`flex flex-col gap-2 bg-white sm:max-w-[260px]   ${
         showOnlyIcon ? "w-min" : "w-full"
       } h-screen px-4 py-5 transition-[width] transform ease-in-out w-full duration-300`}
     >

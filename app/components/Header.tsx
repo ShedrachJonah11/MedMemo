@@ -45,20 +45,19 @@ export function Header() {
 
   const pathname = usePathname();
 
- 
-  const nav = useCallback(() => {
     return (
-      <div>
+      <div className="sticky top-[0] z-50">
         <Navbar
           onMenuOpenChange={setIsMenuOpen}
           maxWidth="2xl"
-          className="px-5 bg-white h-[64px] "
+          className="px-5 bg-white h-[64px] sticky top-[0]"
           classNames={{
             wrapper: ["px-0", "bg-transparent"],
           }}
           suppressHydrationWarning
+          // position="static"
         >
-          {/* <NavbarContent>
+          {/* <NavbarContent> 
           <NavbarBrand>
             <div className="w-full flex justify-between items-center">
               <div>
@@ -235,7 +234,4 @@ export function Header() {
         </Modal>
       </div>
     );
-  }, [isMenuOpen, pathname]);
-
-  return nav();
 }

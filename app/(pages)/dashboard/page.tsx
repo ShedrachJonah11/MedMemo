@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useMemo } from "react";
-
+import { chartData, sessions } from "@/app/assests/data";
 import {
   CartesianGrid,
   Legend,
@@ -11,22 +11,11 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import {
-  Button,
-  Chip,
-  Select,
-  SelectItem,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from "@nextui-org/react";
-import { Bullet } from "../../components/bullet"
-import {chartData,sessions} from "../../assests/data"
+import { Button, Chip, Select, SelectItem, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
+import { Bullet } from "@/app/components/bullet";
 import { HiDotsHorizontal, HiDotsVertical } from "react-icons/hi";
 import { More } from "iconsax-react";
+
 
 function Dashboard() {
   const tableColumns = [
@@ -51,18 +40,18 @@ function Dashboard() {
       label: "",
     },
   ];
-  const CustomizedCursor = () => {
-    return (
-      <div className="block">
-        <div className="group absolute -top-12 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-sm text-center text-sm text-white bg-purple-800">
-          <div className="rounded-sm bg-black py-1 px-2">
-            <p className="whitespace-nowrap">This is a fancy tooltip.</p>
-          </div>
-          <div className="h-0 w-fit border-l-8 border-r-8 border-t-8 border-transparent border-t-black"></div>
+const CustomizedCursor=()=>{
+  return (
+    <div className="block">
+      <div className="group absolute -top-12 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-sm text-center text-sm text-white bg-purple-800">
+        <div className="rounded-sm bg-black py-1 px-2">
+          <p className="whitespace-nowrap">This is a fancy tooltip.</p>
         </div>
+        <div className="h-0 w-fit border-l-8 border-r-8 border-t-8 border-transparent border-t-black"></div>
       </div>
-    );
-  };
+    </div>
+  );
+}
   const formatYAxis = (tickItem: any) => {
     if (tickItem >= 1000) {
       return `${(tickItem / 1000).toFixed(1)}k`;
@@ -104,7 +93,8 @@ function Dashboard() {
         return (
           <p className="text-[#71839B] font-normal text-sm">{item.duration}</p>
         );
-
+     
+      
       case "status":
         if (item.status === "completed") {
           return <p className="text-[#248E2E]">{item.status}</p>;
@@ -113,7 +103,7 @@ function Dashboard() {
         } else if (item.status === "error") {
           return <p className="text-[#CD0C0C]">{item.status}</p>;
         }
-      case "action":
+     case "action":
         return (
           <Button isIconOnly className="bg-transparent text-[#1EB564]">
             <More size="32" color="#343A40" />
