@@ -1,7 +1,7 @@
 "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../../global.css";
 import Nav from "../../components/sideNav";
 import { Providers } from "../../providers/appProvider";
 import { Header } from "../../components/Header";
