@@ -108,7 +108,7 @@ export default function Nav() {
           </ListboxItem>
           <ListboxItem
             className={`${
-              pathname === "/dashboard/record"
+              pathname === "/dashboard/records"
                 ? "bg-[#007BFF1A] text-[#004085]"
                 : "text-black bg-white"
             } ${
@@ -117,18 +117,18 @@ export default function Nav() {
             startContent={
               <Microphone
                 size="20"
-                color={pathname === "/Record" ? "#004085" : "#71839b"}
+                color={pathname === "/records" ? "#004085" : "#71839b"}
               />
             }
-            key="record"
-            href="/dashboard/record"
+            key="records"
+            href="/dashboard/records"
           >
             <p
               className={`text-base font-semibold transition-[width] transform ease-in-out block duration-300 ${
                 showOnlyIcon ? "w-[0] px-0" : ""
               }transition-[width] transform ease-in-out duration-300`}
             >
-              Record
+              Records
             </p>
           </ListboxItem>
           <ListboxItem
