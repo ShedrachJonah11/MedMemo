@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Providers } from "@/app/providers/providers";
+import { Providers } from "@/app/providers/appProvider";
 import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <Providers>
-              <Suspense>{children}</Suspense>    
+      <Suspense>{children}</Suspense>
     </Providers>
   );
 }
