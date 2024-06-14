@@ -24,10 +24,12 @@ import { LuUsers } from "react-icons/lu";
 import { TbBell, TbSmartHome } from "react-icons/tb";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  function pageName() {
+
+  const pageName = useCallback(() => {
     switch (pathname) {
       case "/admin/dashboard":
         return "Dashboard";
@@ -46,8 +48,9 @@ export function Header() {
       default:
         return "Dashboard";
     }
-  }
- const nav=useCallback(() => {
+  }, [pathname]);
+
+  const nav = useCallback(() => {
     return (
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
@@ -247,20 +250,19 @@ export function Header() {
             }   transition-[width] transform ease-in-out  duration-300`}
             key="product-list"
             as={Link}
-            href="/admin/<FiBox size={34} />product-list"
+            href="/admin/product-list"
           >
             <FiBox size={34} />
             <p
               className={`flex gap-3 justify-normal items-center p-[6px] rounded text-black text-lg font-semibold `}
             >
-              product List
+              Product List
             </p>
           </NavbarItem>
         </NavbarMenu>
       </Navbar>
     );
-  },[isMenuOpen, pageName, pathname])
-  return (
-   nav()
-  );
+  }, [isMenuOpen, pageName, pathname]);
+
+  return nav();
 }
