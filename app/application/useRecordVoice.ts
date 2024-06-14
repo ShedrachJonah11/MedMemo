@@ -5,4 +5,11 @@ export const useRecordVoice = () => {
   const [recording, setRecording] = useState(false);
   const [recordBlob, setRecordingBlob] = useState<Blob | null>(null);
   const chunks = useRef<any>([]);
+
+  const stateRecording = () => {
+    if (mediaRecorder) {
+      mediaRecorder.start();
+      setRecording(true);
+    }
+  };
 };
