@@ -3,10 +3,10 @@ import { useEffect, useState, useRef } from "react";
 export const useRecordVoice = () => {
   const [mediaRecorder, setMediaRecorder] = useState<any>(null);
   const [recording, setRecording] = useState(false);
-  const [recordBlob, setRecordingBlob] = useState<Blob | null>(null);
+  const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null);
   const chunks = useRef<any>([]);
 
-  const stateRecording = () => {
+  const startRecording = () => {
     if (mediaRecorder) {
       mediaRecorder.start();
       setRecording(true);
@@ -33,7 +33,7 @@ export const useRecordVoice = () => {
 
     mediaRecorder.onstop = () => {
       const audioBlob = new Blob(chunks.current, { type: "audio/wav" });
-      setRecordingBlob(audioBlob);
+      setRecordedBlob(audioBlob);
     };
 
     setMediaRecorder(mediaRecorder);
@@ -47,5 +47,5 @@ export const useRecordVoice = () => {
     }
   }, []);
 
-  
+  return { recording, startRecording, stopRecording, recordedBlob };
 };
