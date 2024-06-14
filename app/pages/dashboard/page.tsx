@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useMemo } from "react";
-import { chartData, sessions } from "@/app/assests/data";
+
 import {
   CartesianGrid,
   Legend,
@@ -23,7 +23,8 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
-import { Bullet } from "@/app/components/bullet";
+import { Bullet } from "../../components/bullet"
+import {chartData,sessions} from "../../assests/data"
 import { HiDotsHorizontal, HiDotsVertical } from "react-icons/hi";
 import { More } from "iconsax-react";
 
