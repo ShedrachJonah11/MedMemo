@@ -117,3 +117,72 @@ export const sessions = [
     status: "completed",
   },
 ];
+
+export const patients = [
+  {
+    patientId: "31044",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+  {
+    patientId: "31045",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+  {
+    patientId: "31046",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "female",
+  },
+  {
+    patientId: "31047",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "female",
+  },
+  {
+    patientId: "31048",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "female",
+  },
+  {
+    patientId: "31049",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "female",
+  },
+  {
+    patientId: "31004",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "female",
+  },
+  {
+    patientId: "31014",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+  {
+    patientId: "31024",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+  {
+    patientId: "31034",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+  {
+    patientId: "31064",
+    patientName: "John Doe",
+    duration: "1:24",
+    gender: "male",
+  },
+];
