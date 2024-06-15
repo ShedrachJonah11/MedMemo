@@ -18,7 +18,7 @@ export function NotificationCard({status}:src) {
   return (
     <div className="flex p-3 rounded-md gap-3 justify-normal items-center bg-white">
       <div>
-        <Image src={imgsrc()} className="w-[50px] h-50px"></Image>
+        <Image src={imgsrc()} className="w-[50px] h-50px" alt="notification badge"></Image>
       </div>
       <p className="text-[#808080] text-sm font-normal">
         Your session has been completed, click here to view it.
