@@ -10,6 +10,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  Link,
 } from "recharts";
 import { Button, Chip, Select, SelectItem, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
 import { Bullet } from "@/app/components/bullet";
@@ -125,7 +126,7 @@ const CustomizedCursor=()=>{
             Your recent sessions will appear here
           </p>
         </div>
-        <Button isIconOnly className="bg-transparent text-[#007BFF] w-[100px]">
+        <Button as={Link} href="/records" isIconOnly className="bg-transparent text-[#007BFF] w-[100px]">
           View all
         </Button>
       </div>
