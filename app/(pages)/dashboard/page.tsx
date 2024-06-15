@@ -36,13 +36,29 @@ import {
   DatePicker,
   CalendarDate,
 } from "@nextui-org/react";
+import { useDateFormatter } from "@react-aria/i18n";
 import { Bullet } from "@/app/components/bullet";
-import { HiDotsHorizontal, HiDotsVertical } from "react-icons/hi";
 import { More } from "iconsax-react";
+import { getLocalTimeZone } from "@internationalized/date";
+
 function Dashboard() {
+  const [patientName, setPatientName] = useState("");
+  const [gender, setGender] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [medicalHistory, setMedicalHistory] = useState("");
+  const [allergies, setAllergies] = useState("");
+  const [currentMedications, setCurrentMedications] = useState("");
+  const [emergencyContactName, setEmergencyContactName] = useState("");
+  const [emergencyContactPhone, setEmergencyContactPhone] = useState("");
   const [date, setDate] = useState<CalendarDate>();
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
-  console.log(date);
+  const formatter = useDateFormatter({ dateStyle: "full" });
+  
+  const formatedDate = date
+    ? formatter.format(date.toDate(getLocalTimeZone()))
+    : "--";
+
   const tableColumns = [
     {
       key: "session-no",
@@ -72,6 +88,7 @@ function Dashboard() {
     }
     return tickItem;
   };
+
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
@@ -127,6 +144,7 @@ function Dashboard() {
         return item.sessionNo;
     }
   }, []);
+
   const tableTopContent = useMemo(() => {
     return (
       <div className="flex justify-between py-3">
@@ -236,9 +254,9 @@ function Dashboard() {
                             radius="sm"
                             label="Patient Name"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -247,13 +265,15 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Input>
+                            value={patientName}
+                            onChange={(e) => setPatientName(e.target.value)}
+                          />
                           <DatePicker
                             label="DOB"
                             labelPlacement="outside"
                             value={date}
                             onChange={setDate}
-                            className=" rounded-md w-full text-[#71839B] "
+                            className="rounded-md w-full text-[#71839B]"
                             classNames={{
                               base: "text-base [&>div]:bg-white [&>div]:border-1 [&>div]:border-[#83818E] [&>div]:shadow-none [&>div]:h-[52px] [&>span]:text-[#71839B]",
                               label: "text-[#71839B] font-medium text-sm",
@@ -268,6 +288,8 @@ function Dashboard() {
                               base: "flex justify-normal gap-3",
                             }}
                             orientation="horizontal"
+                            value={gender}
+                            onValueChange={setGender}
                           >
                             <Radio
                               classNames={{
@@ -292,9 +314,9 @@ function Dashboard() {
                             radius="sm"
                             label="Phone number"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -303,15 +325,17 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Input>
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                          />
 
                           <Input
                             radius="sm"
                             label="Address"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -320,7 +344,9 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Input>
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                          />
                         </div>
                       </div>
                       <div className="max-w-[352px] w-full flex flex-col gap-5 ">
@@ -334,9 +360,10 @@ function Dashboard() {
                             radius="sm"
                             label="Medical history"
                             labelPlacement="inside"
-                            className=" rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base  overflow-visible",
+                              label:
+                                "text-base text-[#71839B] overflow-visible",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -345,7 +372,9 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Textarea>
+                            value={medicalHistory}
+                            onChange={(e) => setMedicalHistory(e.target.value)}
+                          />
 
                           <Textarea
                             minRows={1}
@@ -353,9 +382,10 @@ function Dashboard() {
                             radius="sm"
                             label="Allergies"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-min min-h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-min min-h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base  overflow-visible",
+                              label:
+                                "text-base text-[#71839B]  overflow-visible",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -364,16 +394,18 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Textarea>
+                            value={allergies}
+                            onChange={(e) => setAllergies(e.target.value)}
+                          />
                           <Textarea
                             minRows={1}
                             maxRows={3}
                             radius="sm"
                             label="Current medications"
                             labelPlacement="inside"
-                            className=" rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -382,7 +414,11 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Textarea>
+                            value={currentMedications}
+                            onChange={(e) =>
+                              setCurrentMedications(e.target.value)
+                            }
+                          />
                         </div>
                         <div className="flex flex-col gap-2">
                           <p className="font-medium text-base text-[#343A40]">
@@ -392,9 +428,9 @@ function Dashboard() {
                             radius="sm"
                             label="Name"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -403,15 +439,19 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Input>
+                            value={emergencyContactName}
+                            onChange={(e) =>
+                              setEmergencyContactName(e.target.value)
+                            }
+                          />
 
                           <Input
                             radius="sm"
                             label="Phone number"
                             labelPlacement="inside"
-                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            className="rounded-md w-full h-[52px] border-1 border-[#83818E]"
                             classNames={{
-                              label: "text-base",
+                              label: "text-base text-[#71839B]",
                               input: "text-base",
                               inputWrapper: [
                                 "bg-white",
@@ -420,7 +460,11 @@ function Dashboard() {
                                 "group-data-[focus=true]:bg-white",
                               ],
                             }}
-                          ></Input>
+                            value={emergencyContactPhone}
+                            onChange={(e) =>
+                              setEmergencyContactPhone(e.target.value)
+                            }
+                          />
                         </div>
                       </div>
                     </div>
