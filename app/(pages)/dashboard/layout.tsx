@@ -24,11 +24,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} absolute h-screen w-full`}
-        suppressHydrationWarning
-      >
+    
         <Providers>
           <div className="flex bg-[#FAFAFA]" suppressHydrationWarning>
             {pathname !== "/auth/login" && <Nav />}
@@ -45,7 +41,5 @@ export default function RootLayout({
             </div>
           </div>
         </Providers>
-      </body>
-    </html>
   );
 }

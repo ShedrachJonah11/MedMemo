@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { chartData, sessions } from "@/app/assests/data";
 import {
   CartesianGrid,
@@ -10,7 +10,6 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  
 } from "recharts";
 import {
   Button,
@@ -23,14 +22,27 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-  Link
+  Link,
+  useDisclosure,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  Input,
+  ModalBody,
+  RadioGroup,
+  Radio,
+  ModalFooter,
+  Textarea,
+  DatePicker,
+  CalendarDate,
 } from "@nextui-org/react";
 import { Bullet } from "@/app/components/bullet";
 import { HiDotsHorizontal, HiDotsVertical } from "react-icons/hi";
 import { More } from "iconsax-react";
-
-
 function Dashboard() {
+  const [date, setDate] = useState<CalendarDate>();
+  const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
+  console.log(date);
   const tableColumns = [
     {
       key: "session-no",
@@ -53,18 +65,7 @@ function Dashboard() {
       label: "",
     },
   ];
-const CustomizedCursor=()=>{
-  return (
-    <div className="block">
-      <div className="group absolute -top-12 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-sm text-center text-sm text-white bg-purple-800">
-        <div className="rounded-sm bg-black py-1 px-2">
-          <p className="whitespace-nowrap">This is a fancy tooltip.</p>
-        </div>
-        <div className="h-0 w-fit border-l-8 border-r-8 border-t-8 border-transparent border-t-black"></div>
-      </div>
-    </div>
-  );
-}
+
   const formatYAxis = (tickItem: any) => {
     if (tickItem >= 1000) {
       return `${(tickItem / 1000).toFixed(1)}k`;
@@ -106,8 +107,7 @@ const CustomizedCursor=()=>{
         return (
           <p className="text-[#71839B] font-normal text-sm">{item.duration}</p>
         );
-     
-      
+
       case "status":
         if (item.status === "completed") {
           return <p className="text-[#248E2E]">{item.status}</p>;
@@ -116,7 +116,7 @@ const CustomizedCursor=()=>{
         } else if (item.status === "error") {
           return <p className="text-[#CD0C0C]">{item.status}</p>;
         }
-     case "action":
+      case "action":
         return (
           <Button isIconOnly className="bg-transparent text-[#1EB564]">
             <More size="32" color="#343A40" />
@@ -138,12 +138,18 @@ const CustomizedCursor=()=>{
             Your recent sessions will appear here
           </p>
         </div>
-        <Button as={Link} href="/records" isIconOnly className="bg-transparent text-[#007BFF] w-[100px]">
+        <Button
+          as={Link}
+          href="/records"
+          isIconOnly
+          className="bg-transparent text-[#007BFF] w-[100px]"
+        >
           View all
         </Button>
       </div>
     );
   }, []);
+
   return (
     <div className="w-full flex flex-col gap-5 pb-5">
       <section className="flex md:flex-row flex-col justify-normal gap-5 w-full">
@@ -152,10 +158,10 @@ const CustomizedCursor=()=>{
             <span className="text-xl font-semibold text-[#343A40]">
               Total number of patients
             </span>
-            <div className="flex gap-3 justify-normal flex-wrap">
+            <div className="flex gap-2 justify-normal flex-wrap">
               <Select
                 radius="sm"
-                className="w-[120px] bg-[#E6F2FF] py-0 shadow-none  rounded-lg"
+                className="w-[100px] bg-[#E6F2FF] py-0 shadow-none  rounded-lg"
                 placeholder="Select category"
                 variant="flat"
                 aria-label="filter select"
@@ -194,9 +200,243 @@ const CustomizedCursor=()=>{
                   All time
                 </SelectItem>
               </Select>
-              <Button className="bg-transparent text-[#007BFF] ">
+              <Button
+                className="bg-transparent text-[#007BFF] "
+                onPress={onOpen}
+              >
                 + Add new patient
               </Button>
+              <Modal
+                className="bg-white shadow-none py-5 w-full"
+                backdrop="blur"
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                placement="top"
+                size="3xl"
+              >
+                <ModalContent>
+                  <ModalHeader>
+                    <div className="flex flex-col justify-center text-center w-full">
+                      <p className="text-[#343A40] font-semibold text-2xl">
+                        Add new patient
+                      </p>
+                      <p className="font-medium text-sm text-[#343A40]">
+                        Enter your patients details to register.
+                      </p>
+                    </div>
+                  </ModalHeader>
+                  <ModalBody>
+                    <div className="flex justify-center gap-4">
+                      <div className="max-w-[352px] w-full flex flex-col gap-5 ">
+                        <div className="flex flex-col gap-[15.4px]">
+                          <p className="font-medium text-base text-[#343A40]">
+                            Personal Information
+                          </p>
+                          <Input
+                            radius="sm"
+                            label="Patient Name"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Input>
+                          <DatePicker
+                            label="DOB"
+                            labelPlacement="outside"
+                            value={date}
+                            onChange={setDate}
+                            className=" rounded-md w-full text-[#71839B] "
+                            classNames={{
+                              base: "text-base [&>div]:bg-white [&>div]:border-1 [&>div]:border-[#83818E] [&>div]:shadow-none [&>div]:h-[52px] [&>span]:text-[#71839B]",
+                              label: "text-[#71839B] font-medium text-sm",
+                            }}
+                            radius="sm"
+                          />
+                          <RadioGroup
+                            label="Gender"
+                            className="flex justify-normal gap-3"
+                            classNames={{
+                              label: "text-[#71839B] font-medium text-sm",
+                              base: "flex justify-normal gap-3",
+                            }}
+                            orientation="horizontal"
+                          >
+                            <Radio
+                              classNames={{
+                                control: [
+                                  "group[data-selected=true]:border-[#007BFF]",
+                                  "group[data-selected=true]:bg-[#007BFF]",
+                                ],
+                              }}
+                              value="Male"
+                            >
+                              Male
+                            </Radio>
+                            <Radio value="Female">Female</Radio>
+                            <Radio value="Others">Others</Radio>
+                          </RadioGroup>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                          <p className="font-medium text-base text-[#343A40]">
+                            Contact details
+                          </p>
+                          <Input
+                            radius="sm"
+                            label="Phone number"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Input>
+
+                          <Input
+                            radius="sm"
+                            label="Address"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Input>
+                        </div>
+                      </div>
+                      <div className="max-w-[352px] w-full flex flex-col gap-5 ">
+                        <div className="flex flex-col gap-2">
+                          <p className="font-medium text-base text-[#343A40]">
+                            Medical Information
+                          </p>
+                          <Textarea
+                            minRows={1}
+                            maxRows={6}
+                            radius="sm"
+                            label="Medical history"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base  overflow-visible",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Textarea>
+
+                          <Textarea
+                            minRows={1}
+                            maxRows={3}
+                            radius="sm"
+                            label="Allergies"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-min min-h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base  overflow-visible",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Textarea>
+                          <Textarea
+                            minRows={1}
+                            maxRows={3}
+                            radius="sm"
+                            label="Current medications"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full min-h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Textarea>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                          <p className="font-medium text-base text-[#343A40]">
+                            Emergency contact
+                          </p>
+                          <Input
+                            radius="sm"
+                            label="Name"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Input>
+
+                          <Input
+                            radius="sm"
+                            label="Phone number"
+                            labelPlacement="inside"
+                            className=" rounded-md w-full h-[52px] border-1 border-[#83818E]"
+                            classNames={{
+                              label: "text-base",
+                              input: "text-base",
+                              inputWrapper: [
+                                "bg-white",
+                                "data-focus-[within=true]:bg-white",
+                                "data-[hover=true]:bg-white",
+                                "group-data-[focus=true]:bg-white",
+                              ],
+                            }}
+                          ></Input>
+                        </div>
+                      </div>
+                    </div>
+                  </ModalBody>
+                  <ModalFooter>
+                    <div className="flex justify-center gap-4 w-full">
+                      <Button className="max-w-[320px] w-full h-[56px] rounded-md border-[3px] border-[#007BFF] text-[#007BFF] bg-white">
+                        Cancel
+                      </Button>
+                      <Button className="max-w-[320px] w-full h-[56px] rounded-md bg-[#007BFF] text-white">
+                        Add Patient
+                      </Button>
+                    </div>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
             </div>
           </div>
           <ResponsiveContainer
@@ -209,7 +449,12 @@ const CustomizedCursor=()=>{
               data={chartData}
               margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
             >
-              <XAxis dataKey="month" axisLine={false} tickLine={false} />
+              <XAxis
+                dataKey="month"
+                axisLine={false}
+                tickLine={false}
+                padding={{ left: 50 }}
+              />
               <YAxis
                 width={50}
                 tickFormatter={formatYAxis}
@@ -218,8 +463,12 @@ const CustomizedCursor=()=>{
               />
               <Tooltip
                 content={<CustomTooltip />}
-                cursor={<CustomizedCursor />}
+                cursor={false}
                 active={true}
+                // position={{
+                //   x: (chartData.length-1)*100,
+                //   y: chartData[chartData.length-1].patients/1000,
+                // }}
               />
               <Line
                 type="monotone"
