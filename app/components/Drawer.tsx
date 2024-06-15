@@ -17,7 +17,7 @@ const Drawer: React.FC<DrawerProps> = ({ isOpen, onClose, children }) => {
         className="absolute inset-0 bg-black bg-opacity-50"
         onClick={onClose}
       ></div>
-      <div className="absolute right-0 bg-white h-full shadow-xl px-[32px] py-[56px] rounded-bl-[16px] rounded-tl-[16px]">
+      <div className="absolute right-0 w-[30%] bg-white h-full shadow-xl px-[32px] py-[56px] rounded-bl-[16px] rounded-tl-[16px]">
         <div className="">{children}</div>
       </div>
     </div>
