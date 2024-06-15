@@ -4,7 +4,7 @@ import {
   Listbox,
   ListboxItem,
   ListboxSection,
-  Spacer,
+  Spacer
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { BiHomeAlt } from "react-icons/bi";
