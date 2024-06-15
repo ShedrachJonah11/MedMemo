@@ -30,7 +30,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <div className="flex bg-[#FAFAFA]" suppressHydrationWarning>
+          <div className="flex bg-[#E9ECEF]" suppressHydrationWarning>
             {pathname !== "/auth/login" && <Nav />}
             <div className="h-screen w-full overflow-y-auto">
               <div className=" flex-col">
