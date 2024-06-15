@@ -92,7 +92,7 @@ const Session = () => {
   return (
     <>
       <section className="w-full">
-        {sessions ? (
+        {sessions.length > 0 ? (
           <>
             <div className="w-full p-4 bg-white rounded-2xl">
               <Table
