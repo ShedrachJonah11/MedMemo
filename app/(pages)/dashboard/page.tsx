@@ -54,7 +54,71 @@ function Dashboard() {
   const [date, setDate] = useState<CalendarDate>();
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const formatter = useDateFormatter({ dateStyle: "full" });
-  
+  const template = [
+    {
+      key: "SOAP",
+      label: "SOAP",
+    },
+    {
+      key: "DETAILED_SECTIONS",
+      label: "DETAILED SECTIONS",
+    },
+    {
+      key: "ASSESSMENT_PLAN",
+      label: "ASSESSMENT PLAN",
+    },
+    {
+      key: "SOAP_ASSESSMENT_PLAN",
+      label: "SOAP ASSESSMENT PLAN",
+    },
+    {
+      key: "SOAP_ASSESSMENT_PLAN_PE_TEST",
+      label: "SOAP ASSESSMENT PLAN PE TEST",
+    },
+    {
+      key: "APSO",
+      label: "APSO",
+    },
+    {
+      key: "SOAP_PSYCHIATRIC",
+      label: "SOAP PSYCHIATRIC",
+    },
+    {
+      key: "PSYCHIATRIC_MULTIPLE_SECTIONS",
+      label: "PSYCHIATRIC MULTIPLE SECTIONS",
+    },
+    {
+      key: "DIET",
+      label: "DIET",
+    },
+    {
+      key: "CARDIOLOGY",
+      label: "CARDIOLOGY",
+    },
+    {
+      key: "PSYCHOLOGY",
+      label: "PSYCHOLOGY",
+    },
+    {
+      key: "LACTATION",
+      label: "LACTATION",
+    },
+  ];
+
+  const pointStyle = [
+    {
+      key: "AUTO",
+      label: "AUTO",
+    },
+    {
+      key: "BULLET_POINTS",
+      label: "BULLET POINTS",
+    },
+    {
+      key: "PARAGRAPH",
+      label: "PARAGRAPH",
+    },
+  ];
   const formatedDate = date
     ? formatter.format(date.toDate(getLocalTimeZone()))
     : "--";
@@ -563,46 +627,86 @@ function Dashboard() {
             <Select
               size="md"
               radius="md"
-              className="w-full bg-white shadow-none border-1 rounded-lg h-[60px]"
+              className="w-full bg-white shadow-none  rounded-lg h-[60px]"
               label="Templates"
               labelPlacement="inside"
               variant="flat"
               aria-label="Templates"
               classNames={{
+                base: "bg-white h-[60px]",
                 trigger: [
-                  "bg-white",
+                  "bg-white h-[60px] border-1",
                   "data-focus-[within=true]:bg-white",
                   "data-[hover=true]:bg-white",
                   "group-data-[focus=true]:bg-white",
                 ],
                 label: "pl-10",
+                // listbox: "bg-[#EDEDED]",
+                // listboxWrapper: "bg-[#EDEDED]",
+                popoverContent: "bg-[#EDEDED]",
               }}
               startContent={<Bullet color="#004085" />}
               defaultSelectedKeys={["SOAP"]}
             >
-              <SelectItem key={"SOAP"}>SOAP</SelectItem>
+              {template.map((template) => (
+                <SelectItem
+                  classNames={{
+                    base: [
+                      "rounded-sm",
+                      "data-[hover=true]:bg-white",
+                      "data-[selected=true]:bg-white",
+                      "data-[focus=true]:bg-white",
+                      "data-[focus-visible=true]:bg-white",
+                      "h-[57px]",
+                    ],
+                  }}
+                  key={template.key}
+                >
+                  {template.label}
+                </SelectItem>
+              ))}
             </Select>
             <Select
               size="md"
               radius="md"
-              className="w-full bg-white shadow-none border-1 rounded-lg h-[60px]"
+              className="w-full bg-white shadow-none  rounded-lg "
               label="Style"
               variant="flat"
               labelPlacement="inside"
               aria-label="Style"
               classNames={{
+                base: "bg-white  h-[60px]",
                 trigger: [
-                  "bg-white",
+                  "bg-white h-[60px] border-1",
                   "data-focus-[within=true]:bg-white",
                   "data-[hover=true]:bg-white",
                   "group-data-[focus=true]:bg-white",
                 ],
                 label: "pl-10",
+                // listbox: "bg-[#EDEDED]",
+                // listboxWrapper: "bg-[#EDEDED]",
+                popoverContent: "bg-[#EDEDED]",
               }}
               startContent={<Bullet color="#5BC0DE" />}
-              defaultSelectedKeys={["Bullet points"]}
+              defaultSelectedKeys={["BULLET_POINTS"]}
             >
-              <SelectItem key={"Bullet points"}>Bullet points</SelectItem>
+              {pointStyle.map((pointStyle) => (
+                <SelectItem
+                  classNames={{
+                    base: [
+                      "rounded-sm",
+                      "data-[hover=true]:bg-white",
+                      "data-[selected=true]:bg-white",
+                      "data-[focus=true]:bg-white",
+                      "data-[focus-visible=true]:bg-white",
+                      "h-[57px]",
+                    ],
+                  }}
+                  key={pointStyle.key}
+                >
+                  {pointStyle.label}
+                </SelectItem>
+              ))}
             </Select>
           </div>
         </div>
