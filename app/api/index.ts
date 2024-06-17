@@ -8,7 +8,12 @@ export default async function handler(req: any, res: any) {
 
   // Use req object to invalidate the cache every request
   const url = req.url;
-  const deepgramApiKey = "fb1f41519759fe12d3855f64d3718458c94ef580"; // Replace 'your_api_key' with your actual Deepgram API key
+  const deepgramApiKey = process.env.DEEPGRAM_API_KEY; // Load the Deepgram API key from environment variables
+
+  if (!deepgramApiKey) {
+    return res.status(500).json({ error: "Deepgram API key is missing" });
+  }
+
   const deepgram = createClient(deepgramApiKey);
 
   let { result: projectsResult, error: projectsError } =
