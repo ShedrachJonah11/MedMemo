@@ -15,7 +15,7 @@ const HomeNav = () => {
           <Link
             href="/"
             className={`${
-              pathname === "/" ? "text-[#343A40]" : "#71839B"
+              pathname === "/" ? "text-[#343A40]" : "text-[#71839B]"
             } px-4 py-[10px] text-[18px] font-[600]`}
           >
             Home
@@ -23,7 +23,7 @@ const HomeNav = () => {
           <Link
             href="/about"
             className={`${
-              pathname === "/about" ? "text-[#343A40]" : "#71839B"
+              pathname === "/about" ? "text-[#343A40]" : "text-[#71839B]"
             } px-4 py-[10px] text-[18px] font-[600]`}
           >
             About Us
@@ -31,7 +31,7 @@ const HomeNav = () => {
           <Link
             href="/contact"
             className={`${
-              pathname === "/contact" ? "text-[#343A40]" : "#71839B"
+              pathname === "/contact" ? "text-[#343A40]" : "text-[#71839B]"
             } px-4 py-[10px] text-[18px] font-[600]`}
           >
             Contact
