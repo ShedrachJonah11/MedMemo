@@ -1,3 +1,68 @@
+export const template = [
+  {
+    key: "SOAP",
+    label: "SOAP",
+  },
+  {
+    key: "DETAILED_SECTIONS",
+    label: "DETAILED SECTIONS",
+  },
+  {
+    key: "ASSESSMENT_PLAN",
+    label: "ASSESSMENT PLAN",
+  },
+  {
+    key: "SOAP_ASSESSMENT_PLAN",
+    label: "SOAP ASSESSMENT PLAN",
+  },
+  {
+    key: "SOAP_ASSESSMENT_PLAN_PE_TEST",
+    label: "SOAP ASSESSMENT PLAN PE TEST",
+  },
+  {
+    key: "APSO",
+    label: "APSO",
+  },
+  {
+    key: "SOAP_PSYCHIATRIC",
+    label: "SOAP PSYCHIATRIC",
+  },
+  {
+    key: "PSYCHIATRIC_MULTIPLE_SECTIONS",
+    label: "PSYCHIATRIC MULTIPLE SECTIONS",
+  },
+  {
+    key: "DIET",
+    label: "DIET",
+  },
+  {
+    key: "CARDIOLOGY",
+    label: "CARDIOLOGY",
+  },
+  {
+    key: "PSYCHOLOGY",
+    label: "PSYCHOLOGY",
+  },
+  {
+    key: "LACTATION",
+    label: "LACTATION",
+  },
+];
+
+export const pointStyle = [
+  {
+    key: "AUTO",
+    label: "AUTO",
+  },
+  {
+    key: "BULLET_POINTS",
+    label: "BULLET POINTS",
+  },
+  {
+    key: "PARAGRAPH",
+    label: "PARAGRAPH",
+  },
+];
 export const chartData = [
   {
     month: "Jan",
@@ -23,30 +88,30 @@ export const chartData = [
     month: "Jun",
     patients: 3100,
   },
-//   {
-//     month: "Jul",
-//     patients: 0,
-//   },
-//   {
-//     month: "Aug",
-//     patients: 0,
-//   },
-//   {
-//     month: "Sep",
-//     patients: 0,
-//   },
-//   {
-//     month: "Oct",
-//     patients: 0,
-//   },
-//   {
-//     month: "Nov",
-//     patients: 0,
-//   },
-//   {
-//     month: "Dec",
-//     patients: 0,
-//   },
+  //   {
+  //     month: "Jul",
+  //     patients: 0,
+  //   },
+  //   {
+  //     month: "Aug",
+  //     patients: 0,
+  //   },
+  //   {
+  //     month: "Sep",
+  //     patients: 0,
+  //   },
+  //   {
+  //     month: "Oct",
+  //     patients: 0,
+  //   },
+  //   {
+  //     month: "Nov",
+  //     patients: 0,
+  //   },
+  //   {
+  //     month: "Dec",
+  //     patients: 0,
+  //   },
 ];
 
 export const sessions = [

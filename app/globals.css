@@ -2,4 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e9ecef;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #007bff;
+}
+.recorder {
+  animation: 1.5s pulse infinite ease-in-out;
+}
 
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #e9ecef;
+  }
+
+  100% {
+    box-shadow: 0 0 0 14px #69ffa800;
+  }
+}

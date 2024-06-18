@@ -34,7 +34,7 @@ export default function Nav() {
   return (
     <div
       suppressHydrationWarning
-      className={`flex flex-col gap-2 bg-white sm:max-w-[260px]   ${
+      className={`flex flex-col gap-2 bg-white sm:max-w-[260px]  relative z-[100] ${
         showOnlyIcon ? "w-min" : "w-full"
       } h-screen px-4 py-5 transition-[width] transform ease-in-out w-full duration-300`}
     >
@@ -117,7 +117,7 @@ export default function Nav() {
             startContent={
               <Microphone
                 size="20"
-                color={pathname === "/records" ? "#004085" : "#71839b"}
+                color={pathname === "/dashboard/records" ? "#004085" : "#71839b"}
               />
             }
             key="records"

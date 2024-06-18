@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useMemo, useState } from "react";
-import { chartData, sessions } from "@/app/assests/data";
+import { chartData, pointStyle, sessions, template } from "@/app/assests/data";
 import {
   CartesianGrid,
   Legend,
@@ -40,6 +40,7 @@ import { useDateFormatter } from "@react-aria/i18n";
 import { Bullet } from "@/app/components/bullet";
 import { More } from "iconsax-react";
 import { getLocalTimeZone } from "@internationalized/date";
+import RecentSessions from "@/app/components/recentSessions";
 
 function Dashboard() {
   const [patientName, setPatientName] = useState("");
@@ -54,97 +55,10 @@ function Dashboard() {
   const [date, setDate] = useState<CalendarDate>();
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const formatter = useDateFormatter({ dateStyle: "full" });
-  const template = [
-    {
-      key: "SOAP",
-      label: "SOAP",
-    },
-    {
-      key: "DETAILED_SECTIONS",
-      label: "DETAILED SECTIONS",
-    },
-    {
-      key: "ASSESSMENT_PLAN",
-      label: "ASSESSMENT PLAN",
-    },
-    {
-      key: "SOAP_ASSESSMENT_PLAN",
-      label: "SOAP ASSESSMENT PLAN",
-    },
-    {
-      key: "SOAP_ASSESSMENT_PLAN_PE_TEST",
-      label: "SOAP ASSESSMENT PLAN PE TEST",
-    },
-    {
-      key: "APSO",
-      label: "APSO",
-    },
-    {
-      key: "SOAP_PSYCHIATRIC",
-      label: "SOAP PSYCHIATRIC",
-    },
-    {
-      key: "PSYCHIATRIC_MULTIPLE_SECTIONS",
-      label: "PSYCHIATRIC MULTIPLE SECTIONS",
-    },
-    {
-      key: "DIET",
-      label: "DIET",
-    },
-    {
-      key: "CARDIOLOGY",
-      label: "CARDIOLOGY",
-    },
-    {
-      key: "PSYCHOLOGY",
-      label: "PSYCHOLOGY",
-    },
-    {
-      key: "LACTATION",
-      label: "LACTATION",
-    },
-  ];
 
-  const pointStyle = [
-    {
-      key: "AUTO",
-      label: "AUTO",
-    },
-    {
-      key: "BULLET_POINTS",
-      label: "BULLET POINTS",
-    },
-    {
-      key: "PARAGRAPH",
-      label: "PARAGRAPH",
-    },
-  ];
   const formatedDate = date
     ? formatter.format(date.toDate(getLocalTimeZone()))
     : "--";
-
-  const tableColumns = [
-    {
-      key: "session-no",
-      label: "Session NO",
-    },
-    {
-      key: "patient-name",
-      label: "Patient Name",
-    },
-    {
-      key: "duration",
-      label: "Duration",
-    },
-    {
-      key: "status",
-      label: "Status",
-    },
-    {
-      key: "action",
-      label: "",
-    },
-  ];
 
   const formatYAxis = (tickItem: any) => {
     if (tickItem >= 1000) {
@@ -171,66 +85,6 @@ function Dashboard() {
 
     return null;
   };
-
-  const renderCell = useCallback((item: any, columnKey: React.Key) => {
-    switch (columnKey) {
-      case "seesion-no":
-        return (
-          <p className="text-[#343A40] font-medium text-sm">{item.sessionNo}</p>
-        );
-      case "patient-name":
-        return (
-          <p className="text-[#71839B] font-normal text-sm">
-            {item.patientName}
-          </p>
-        );
-      case "duration":
-        return (
-          <p className="text-[#71839B] font-normal text-sm">{item.duration}</p>
-        );
-
-      case "status":
-        if (item.status === "completed") {
-          return <p className="text-[#248E2E]">{item.status}</p>;
-        } else if (item.status === "processing") {
-          return <p className="text-[#CB8E33]">{item.status}</p>;
-        } else if (item.status === "error") {
-          return <p className="text-[#CD0C0C]">{item.status}</p>;
-        }
-      case "action":
-        return (
-          <Button isIconOnly className="bg-transparent text-[#1EB564]">
-            <More size="32" color="#343A40" />
-          </Button>
-        );
-
-      default:
-        return item.sessionNo;
-    }
-  }, []);
-
-  const tableTopContent = useMemo(() => {
-    return (
-      <div className="flex justify-between py-3">
-        <div className="flex flex-col gap-1">
-          <p className="font-semibold text-xl text-[#343A40]">
-            Recent sessions
-          </p>
-          <p className="text-sm text-[#71839B]">
-            Your recent sessions will appear here
-          </p>
-        </div>
-        <Button
-          as={Link}
-          href="/records"
-          isIconOnly
-          className="bg-transparent text-[#007BFF] w-[100px]"
-        >
-          View all
-        </Button>
-      </div>
-    );
-  }, []);
 
   return (
     <div className="w-full flex flex-col gap-5 pb-5">
@@ -627,10 +481,9 @@ function Dashboard() {
             <Select
               size="md"
               radius="md"
-              className="w-full bg-white shadow-none  rounded-lg h-[60px]"
+              className="w-full bg-white shadow-none  rounded-lg h-[60px] scrollb"
               label="Templates"
               labelPlacement="inside"
-              variant="flat"
               aria-label="Templates"
               classNames={{
                 base: "bg-white h-[60px]",
@@ -642,7 +495,8 @@ function Dashboard() {
                 ],
                 label: "pl-10",
                 // listbox: "bg-[#EDEDED]",
-                // listboxWrapper: "bg-[#EDEDED]",
+                listboxWrapper: "bg-[#EDEDED]",
+                listbox: "custom-scrollbar",
                 popoverContent: "bg-[#EDEDED]",
               }}
               startContent={<Bullet color="#004085" />}
@@ -650,6 +504,7 @@ function Dashboard() {
             >
               {template.map((template) => (
                 <SelectItem
+                  className="hover:bg-white focus:bg-white"
                   classNames={{
                     base: [
                       "rounded-sm",
@@ -683,7 +538,7 @@ function Dashboard() {
                   "group-data-[focus=true]:bg-white",
                 ],
                 label: "pl-10",
-                // listbox: "bg-[#EDEDED]",
+                listboxWrapper: "custom-scrollbar",
                 // listboxWrapper: "bg-[#EDEDED]",
                 popoverContent: "bg-[#EDEDED]",
               }}
@@ -711,34 +566,7 @@ function Dashboard() {
           </div>
         </div>
       </section>
-      <section>
-        <div className="w-full p-5 bg-white rounded-2xl">
-          <Table
-            shadow="none"
-            aria-label="last transactions"
-            topContent={tableTopContent}
-            classNames={{
-              th: ["bg-white", "text-[#141417]"],
-              thead: ["text-default-500"],
-            }}
-          >
-            <TableHeader columns={tableColumns}>
-              {(column) => (
-                <TableColumn key={column.key}>{column.label}</TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={sessions}>
-              {(item) => (
-                <TableRow key={item.sessionNo}>
-                  {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey)}</TableCell>
-                  )}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-      </section>
+      <RecentSessions />
     </div>
   );
 }
