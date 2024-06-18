@@ -1,0 +1,28 @@
+.avatar-group-custom .avatar {
+  width: 25px; /* Set the width of the avatars */
+  height: 25px; /* Set the height of the avatars */
+  margin-right: -8px; /* Adjust the spacing between avatars */
+}
+
+.delete-button {
+  visibility: hidden;
+}
+
+.card:hover .delete-button {
+  visibility: visible;
+}
+
+.list-dot::before {
+  content: "•"; /* Unicode for bullet point */
+  margin-right: 8px; /* Adjust spacing between bullet point and text */
+}
+
+.upgrade-button {
+  transition: background-color 0.3s;
+}
+
+.upgrade-button:hover {
+  background-color: #e1f7ec; /* Change to your desired hover color */
+}
+
+
