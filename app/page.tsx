@@ -49,7 +49,7 @@ export default function Home() {
             <ArrowRight size="24" color="#007BFF" />
           </div>
           <Link
-            href={"/sign-up"}
+            href={"/auth/signup"}
             className="h-[56px] flex justify-center items-center px-[42px] rounded-[8px] text-white bg-[#007BFF] text-[16px] font-[600]"
           >
             Get Started Today{" "}
@@ -413,7 +413,7 @@ export default function Home() {
             Ready to get started?
           </h2>
           <Link
-            href={"/sign-up"}
+            href={"/auth/signup"}
             className="h-[56px] flex justify-center items-center px-[32px] rounded-[8px] text-[#343A40] bg-[#FF8400] text-[16px] font-[600]"
           >
             Sign up for free{" "}

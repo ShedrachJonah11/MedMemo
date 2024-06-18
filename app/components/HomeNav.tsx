@@ -39,12 +39,12 @@ const HomeNav = () => {
         </div>
 
         <div className="flex justify-center items-center gap-4">
-          <button className="h-[65px] px-4 text-[#007BFF] text-[16px] font-[600]">
+          <Link href={'/auth/login'} className="h-[56px] flex justify-center items-center px-4 text-[#007BFF] text-[16px] font-[600]">
             Log in
-          </button>
-          <button className="h-[56px] px-[32px] rounded-[8px] text-white bg-[#007BFF] text-[16px] font-[600]">
+          </Link>
+          <Link href={'/auth/signup'} className="h-[56px] flex justify-center items-center px-[32px] rounded-[8px] text-white bg-[#007BFF] text-[16px] font-[600]">
             Sign Up
-          </button>
+          </Link>
         </div>
       </div>
     </>
