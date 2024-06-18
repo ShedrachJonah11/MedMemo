@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@deepgram/sdk": "^3.3.4",
     "@nextui-org/react": "^2.4.1",
+    "axios": "^1.7.2",
+    "dexie": "^4.0.7",
     "framer-motion": "^11.2.10",
     "iconsax-react": "^0.0.8",
     "next": "14.2.3",
@@ -19,6 +22,8 @@
     "react-icons": "^5.2.1",
     "recharts": "^2.12.7",
     "swiper": "^11.1.4"
+    "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@types/node": "^20",
