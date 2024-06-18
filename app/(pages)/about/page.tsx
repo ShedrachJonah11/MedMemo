@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
-// import Nav from "@/components/NavBar";
 import { Button, Card, CardBody } from "@nextui-org/react";
-// import Footer from "@/components/footer";
 import group from "@/public/group-doc.svg";
 import icon from "@/public/Icon Label.svg";
 import icon2 from "@/public/Icon Label2.svg";
@@ -12,8 +10,6 @@ import person from "@/public/person.svg";
 import Link from "next/link";
 import arrowright from "@/public/arrow-right.svg";
 import bg from "@/public/bg.png";
-import HomeNav from "@/app/components/HomeNav";
-import Footer from "@/app/components/Footer";
 
 function Index() {
   return (
