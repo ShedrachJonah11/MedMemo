@@ -12,11 +12,12 @@ import person from "@/public/person.svg";
 import Link from "next/link";
 import arrowright from "@/public/arrow-right.svg";
 import bg from "@/public/bg.png";
+import HomeNav from "@/app/components/HomeNav";
+import Footer from "@/app/components/Footer";
 
 function Index() {
   return (
     <div className="bg-[#FAF9F6]">
-      {/* <Nav /> */}
       {/* Hero seciton */}
       <div className="relative h-auto md:h-[500px] mb-20 px-6 md:px-32 py-14 md:py-32">
         <Image
@@ -144,8 +145,6 @@ function Index() {
           </Card>
         </div>
       </div>
-
-      {/* <Footer /> */}
     </div>
   );
 }
