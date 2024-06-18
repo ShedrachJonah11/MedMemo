@@ -42,8 +42,8 @@ const HomeNav = () => {
           <button className="h-[65px] px-4 text-[#007BFF] text-[16px] font-[600]">
             Log in
           </button>
-          <button className="h-[65px] px-[32px] rounded-[8px] text-white bg-[#007BFF] text-[16px] font-[600]">
-            SIgn Up
+          <button className="h-[56px] px-[32px] rounded-[8px] text-white bg-[#007BFF] text-[16px] font-[600]">
+            Sign Up
           </button>
         </div>
       </div>

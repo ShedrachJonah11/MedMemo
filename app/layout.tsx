@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} absolute h-screen w-full`}
+        className={`${inter.className} absolute h-screen w-full bg-[#E9ECEF]`}
         suppressHydrationWarning
       >
         <Providers>
