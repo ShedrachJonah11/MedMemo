@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers/appProvider";
 import { Suspense } from "react";
+import HomeNav from './components/HomeNav'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-         
+<HomeNav />         
                   <Suspense>{children}</Suspense>
                
         </Providers>
