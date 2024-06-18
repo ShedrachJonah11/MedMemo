@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { AppContext, ContextProvider } from "@/utils/AppContext"; 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { AppContext, ContextProvider } from "@/utils/AppContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../app/globals.css";
 
 function App({ Component, pageProps }: AppProps) {
@@ -19,18 +19,18 @@ function App({ Component, pageProps }: AppProps) {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <title>VetMemos</title>
+            <title>MedMemos</title>
             <link rel="icon" href="/favicon.png" />
             <meta
               name="description"
-              content="VetMemos - A platform for structured medical notes from your encounters, in seconds."
+              content="MedMemos - A platform for structured medical notes from your encounters, in seconds."
             />
             <meta
               name="keywords"
-              content="vetmemos, medical notes, structured notes, healthcare, consultations"
+              content="medmemos, medical notes, structured notes, healthcare, consultations"
             />
             <meta name="author" content="Your Name" />
-            
+
             {/* Google Tag Manager */}
             <script
               dangerouslySetInnerHTML={{
@@ -43,11 +43,11 @@ function App({ Component, pageProps }: AppProps) {
                     j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
                     f.parentNode.insertBefore(j,f);
                   })(window,document,'script','dataLayer','GTM-58377THJ');
-                `
+                `,
               }}
             />
           </Head>
-          
+
           {/* Google Tag Manager (noscript) */}
           <noscript>
             <iframe
@@ -57,7 +57,7 @@ function App({ Component, pageProps }: AppProps) {
               style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
-          
+
           <Component {...pageProps} />
           <ToastContainer />
         </AppContext.Provider>
