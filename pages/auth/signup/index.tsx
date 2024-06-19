@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bg from "../../../public/bgauth.svg";
+import bg from "../../../public/homeIllus.svg";
 import star from "../../../public/star.svg";
 import Image from "next/image";
 import { Button, Card, CardBody, Checkbox, Input } from "@nextui-org/react";
@@ -109,14 +109,14 @@ function Index() {
     }
   };
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
-      <Image
+    <div className="relative signupBg h-screen flex items-center justify-center overflow-hidden">
+      {/* <Image
         src={bg}
         alt="Background"
         layout="fill"
         objectFit="cover"
         priority={true}
-      />
+      /> */}
       <Card className="w-96 sm:w-[450px]  p-6 bg-opacity-75 ">
         <CardBody className="flex flex-col items-center">
           <Image src={star} alt="" className="mt-2" />
@@ -201,7 +201,7 @@ function Index() {
             }}
             disabled={isLoginButtonDisabled}
             style={{
-              backgroundColor: isLoginButtonDisabled ? "#CCCCCC" : "#008080",
+              backgroundColor: isLoginButtonDisabled ? "#CCCCCC" : "#007BFF",
             }}
           >
             <p className="text-white text-semibold ">Sign Up</p>
@@ -209,11 +209,11 @@ function Index() {
 
           <div className="flex items-center mt-6 mb-4">
             <div className="flex-1 border-t border-black"></div>
-            <p className="mx-4">or</p>
+            {/* <p className="mx-4">or</p> */}
             <div className="flex-1 border-t border-black"></div>
           </div>
 
-          <Button
+          {/* <Button
             size="lg"
             className="w-full bg-white mb-4"
             onClick={() => {
@@ -222,7 +222,7 @@ function Index() {
           >
             <Image src={goggle} alt="google" />
             <p>Sign up with Google</p>
-          </Button>
+          </Button> */}
           <div className="flex justify-center items-center">
             <p className="flex">
               Have an account already?

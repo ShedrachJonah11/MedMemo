@@ -23,3 +23,23 @@ body {
     text-wrap: balance;
   }
 }
+
+.signupBg {
+  background-image: url("/homeIllus.svg");
+  background-size: 180%;
+  background-position: 40% 40%;
+  background-repeat: "no-repeat";
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.loginBg {
+  background-image: url("/homeIllus.svg");
+  background-size: 195%;
+  background-position: 80% 50%;
+  background-repeat: "no-repeat";
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
