@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const HomeNav = () => {
+const NavBar = () => {
   const pathname = usePathname();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -128,4 +128,4 @@ const HomeNav = () => {
   );
 };
 
-export default HomeNav;
+export default NavBar;

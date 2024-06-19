@@ -138,7 +138,7 @@ function Index() {
       <Nav />
       {/* Hero Section */}
       <section>
-        <div className="flex flex-col lg:flex-row h-full bg-[#FAF9F6] overflow-x-hidden">
+        <div className="flex flex-col lg:flex-row h-full  overflow-x-hidden">
           {/* Content */}
           <div className="flex-1 flex flex-col px-6 py-16 md:py-20 md:px-16 lg:px-32">
             <motion.h1
@@ -210,343 +210,62 @@ function Index() {
             <Image src={doc} alt="Background" width={600} height={600} />
           </motion.div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 bg-[#FAF9F6]">
-          {/* First column */}
-          <motion.div
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className=""
-          >
-            <div className="text-center font-semibold text-2xl mb-4">
-              120 Minutes
-            </div>
-            <p className="text-center text-lg text-[#808080] w-80">
-              VetMemos saves doctors time on clinical documentation.
-            </p>
-          </motion.div>
-
-          {/* Vertical line */}
-          <div className="hidden lg:block h-20 border-l border-[#808080]"></div>
-
-          {/* Second column */}
-          <motion.div
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className="flex flex-col items-center"
-          >
-            <div className="text-center font-semibold text-2xl mb-4">95%</div>
-            <p className="text-center text-lg text-[#808080] w-80">
-              VetMemos significantly reduces fatigue for many clinicians using
-              us.
-            </p>
-          </motion.div>
-
-          {/* Vertical line */}
-          <div className="hidden lg:block h-20 border-l border-[#808080]"></div>
-
-          {/* Third column */}
-          <motion.div
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className="flex flex-col items-center"
-          >
-            <div className="text-center font-semibold text-2xl mb-4">
-              60 Seconds
-            </div>
-            <p className="text-center text-lg text-[#808080] w-80">
-              To set up VetMemos and start documenting.
-            </p>
-          </motion.div>
-        </div>
       </section>
 
       {/* How it works */}
       <section>
-        <div className="h-full bg-[#FAF9F6] relative flex flex-col py-10 lg:py-32 px-6 md:px-10 lg:px-28 ">
-          <motion.h1
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className="text-2xl lg:text-4xl font-medium mb-6 lg:mb-8"
-          >
-            How It Works
-          </motion.h1>
-          <motion.div
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className="flex flex-col lg:flex-row justify-between items-center"
-          >
-            <Button className="bg-[#008080] px-4 py-6 lg:px-6 lg:py-8 mb-8 lg:mb-0">
-              <AvatarGroup
-                isBordered
-                max={3}
-                total={10}
-                className="avatar-group-custom "
-              >
-                <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-              </AvatarGroup>
-              <h1 className="text-white text-xs lg:text-sm font-semibold">
-                Get Started
-              </h1>
-            </Button>
-
-            <p className="text-[#808080] text-base lg:text-xl max-w-[600px] ">
-              Whether you&apos;re advanced with computers or not, you can
-              simplify your documentation in minutes instead of hours.
-            </p>
-          </motion.div>
-
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-24 mt-6 md:mt-10">
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.2 }}
-              viewport={{ once: false }}
-            >
-              <Card className="flex-shrink-0">
-                <CardBody>
-                  <Image src={step1} alt="alt" />
-                </CardBody>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.5 }}
-              viewport={{ once: false }}
-            >
-              <Card className="flex-shrink-0">
-                <CardBody>
-                  <Image src={step2} alt="alt" />
-                </CardBody>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.7 }}
-              viewport={{ once: false }}
-            >
-              <Card className="flex-shrink-0">
-                <CardBody>
-                  <Image src={step3} alt="alt" />
-                </CardBody>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Features */}
-      <section>
-        <div className="p-4 bg-[#FAF9F6] relative px-6 md:px-10 lg:px-28">
-          <motion.div
-            variants={{
-              hidden: { y: 60, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ease: "linear", delay: 0.7 }}
-            viewport={{ once: false }}
-            className="flex flex-col md:flex-row items-center mb-2 md:mb-8"
-          >
-            <h1 className="text-2xl lg:text-4xl font-medium mb-4 lg:mb-0">
-              Our Features
+        <div className="container mx-auto px-4 mt-24">
+          <div className="flex flex-col items-center text-center mb-10">
+            <h1 className="text-3xl md:text-4xl font-semibold mb-4">
+              How it <span className="text-blue-500">Works</span>
             </h1>
-            <Image src={star} alt="star" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.5 }}
-              viewport={{ once: false }}
-            >
-              <Card>
-                <CardBody>
-                  <div className="flex mt-6 items-center justify-center">
-                    <Image src={feat1} alt="alt" />
-                  </div>
-                  <div className="p-4">
-                    <h1 className="text-xl lg:text-2xl font-semibold mt-6">
-                      AI Analysis
-                    </h1>
-                    <p className="text-gray-400 mt-4 mb-4">
-                      We implement the AI system that can analyze and interpret
-                      patient complaints to generate meaningful documentation.
-                    </p>
-                  </div>
-                </CardBody>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.7 }}
-              viewport={{ once: false }}
-            >
-              <Card>
-                <CardBody>
-                  <div className="flex mt-6 items-center justify-center">
-                    <Image src={feat2} alt="alt" />
-                  </div>
-                  <div className="p-4">
-                    <h1 className="text-xl lg:text-2xl font-semibold mt-6">
-                      Integration with EHR Systems
-                    </h1>
-                    <p className="text-gray-400 mt-4 mb-4">
-                      We provide the ability to integrate with existing
-                      Electronic Health Record (EHR) systems used by healthcare
-                      providers.
-                    </p>
-                  </div>
-                </CardBody>
-              </Card>
-            </motion.div>
+            <p className="text-lg text-gray-600 max-w-xl">
+              With MedMemos you can easily input patient details and medical
+              history.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mt-6">
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.3 }}
-              viewport={{ once: false }}
-              className="w-full"
-            >
-              <Card className="h-full">
-                <CardHeader className="flex justify-center">
-                  <Image src={feat3} alt="alt" width={500} />
-                </CardHeader>
-                <CardBody>
-                  <h1 className="font-medium text-xl lg:text-2xl">
-                    Multi-language Support
-                  </h1>
-                  <p className="text-gray-400 mt-4 mb-4">
-                    We offer support for multiple languages to accommodate a
-                    diverse user base. We help you transcribe all audios.
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.5 }}
-              viewport={{ once: false }}
-              className="w-full"
-            >
-              <Card className="h-full">
-                <CardHeader className="flex justify-center">
-                  <Image src={feat4} alt="alt" width={500} />
-                </CardHeader>
-                <CardBody>
-                  <h1 className="font-medium text-xl lg:text-2xl">
-                    Security and Compliance
-                  </h1>
-                  <p className="text-gray-400 mt-4 mb-4">
-                    We ensure robust security measures to protect your data and
-                    comply with healthcare regulations.
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.7 }}
-              viewport={{ once: false }}
-              className="w-full"
-            >
-              <Card className="h-full">
-                <CardHeader className="flex justify-center">
-                  <Image src={feat5} alt="alt" width={500} />
-                </CardHeader>
-                <CardBody>
-                  <h1 className="font-medium text-xl lg:text-2xl">
-                    User Support
-                  </h1>
-                  <p className="text-gray-400 mt-4 mb-4">
-                    We offer a support system to address common queries. A
-                    contact option is also included for more personalized
-                    assistance.
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
+          <div className="flex flex-wrap justify-center gap-6">
+            <div className=" p-6 rounded-lg shadow-lg w-full sm:w-64 md:w-1/4">
+              <p className="text-gray-200 text-5xl font-bold mb-4">01</p>
+              <h2 className="text-2xl font-semibold mb-2">Create Account</h2>
+              <p className="text-gray-600">
+                Create your MedMemo account in minutes.
+              </p>
+            </div>
+
+            <div className=" p-6 rounded-lg shadow-lg w-full sm:w-64 md:w-1/4">
+              <p className="text-gray-200 text-5xl font-bold mb-4">02</p>
+              <h2 className="text-2xl font-semibold mb-2">
+                Record Information
+              </h2>
+              <p className="text-gray-600">
+                Use the intuitive interface to document patient visits.
+              </p>
+            </div>
+
+            <div className=" p-6 rounded-lg shadow-lg w-full sm:w-64 md:w-1/4">
+              <p className="text-gray-200 text-5xl font-bold mb-4">03</p>
+              <h2 className="text-2xl font-semibold mb-2">Store Securely</h2>
+              <p className="text-gray-600">
+                Keep all records safely stored and easily retrievable.
+              </p>
+            </div>
+
+            <div className=" p-6 rounded-lg shadow-lg w-full sm:w-64 md:w-1/4">
+              <p className="text-gray-200 text-5xl font-bold mb-4">04</p>
+              <h2 className="text-2xl font-semibold mb-2">Access & Share</h2>
+              <p className="text-gray-600">
+                Access records from any device and share with others.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What Our Users Say About Us */}
       <section className="overflow-x-hidden">
-        <div className="h-full bg-[#FAF9F6] justify-center items-center flex flex-col relative">
+        <div className="h-full bg-[#fff] justify-center items-center flex flex-col relative">
           <div className="flex flex-col items-center pt-14 mb-6">
             <h1 className="text-2xl sm:text-4xl mb-4 font-medium text-center">
               What Our Users Say About Us
@@ -599,7 +318,7 @@ function Index() {
         </div>
       </section>
 
-      <div className="flex justify-center bg-[#FAF9F6] ">
+      <div className="flex justify-center">
         <motion.div
           variants={{
             hidden: { y: 60, opacity: 0 },
@@ -611,7 +330,7 @@ function Index() {
           viewport={{ once: false }}
           className="px-4 md:px-10 lg:px-20 py-8 md:py-10 lg:py-32 w-full "
         >
-          <Card className="bg-[#008080] w-full ">
+          <Card className="bg-[#007BFF] w-full ">
             <CardBody>
               <div className="flex flex-col md:flex-row justify-between items-center py-8 md:py-12 lg:py-16 px-6 md:px-10 lg:px-20">
                 <div className="text-center md:text-left">
@@ -639,7 +358,7 @@ function Index() {
 
       {/* Pricing */}
       <section id="Pricing" className="h-auto md:h-full">
-        <div className=" relative bg-[#FAF9F6]  flex flex-col justify-center items-center py-10 px-4 sm:px-0">
+        <div className=" relative flex flex-col justify-center items-center py-10 px-4 sm:px-0">
           <h1 className="text-black mb-10 text-4xl text-center font-semibold">
             Upgrade your plan
           </h1>
@@ -678,7 +397,7 @@ function Index() {
               transition={{ ease: "linear", delay: 0.3 }}
               viewport={{ once: false }}
             >
-              <Card className="w-full md:w-[440px] h-full p-8 bg-transparent border border-[#008080] mb-4">
+              <Card className="w-full md:w-[440px] h-full p-8 bg-transparent border border-[#007BFF] mb-4">
                 <h3 className="mb-4 font-semibold text-2xl">Free</h3>
                 <h1 className="text-black text-4xl mb-10 font-regular">$0</h1>
 
@@ -689,9 +408,9 @@ function Index() {
 
                 <Button
                   variant="bordered"
-                  className="border-[#008080] py-6 border-1 mb-6"
+                  className="border-[#007BFF] py-6 border-1 mb-6"
                 >
-                  <p className="text-[#008080] text-lg font-light">
+                  <p className="text-[#007BFF] text-lg font-light">
                     {getPlan(userData?.roles || []) === "Free"
                       ? "Active"
                       : "Get Started"}
@@ -730,7 +449,7 @@ function Index() {
               transition={{ ease: "linear", delay: 0.3 }}
               viewport={{ once: false }}
             >
-              <Card className="w-full h-full md:w-[440px] bg-transparent p-8 border border-[#008080] mb-4">
+              <Card className="w-full h-full md:w-[440px] bg-transparent p-8 border border-[#007BFF] mb-4">
                 <h3 className="mb-4 font-semibold text-2xl">Plus</h3>
                 <h1 className="text-black text-4xl mb-2 font-regular">
                   {isYearlyBilling ? "$99.99" : "$999.99"}
@@ -747,12 +466,12 @@ function Index() {
 
                 <Button
                   variant="bordered"
-                  className="border-[#008080] py-6 border-1 mb-6"
-                  onClick={() => {
-                    subscribeUser();
-                  }}
+                  className="border-[#007BFF] py-6 border-1 mb-6"
+                  // onClick={() => {
+                  //   subscribeUser();
+                  // }}
                 >
-                  <p className="text-[#008080] text-lg font-light">
+                  <p className="text-[#007BFF] text-lg font-light">
                     {getPlan(userData?.roles || []) === "Plus"
                       ? "Active"
                       : "Get Started"}
@@ -794,7 +513,7 @@ function Index() {
               transition={{ ease: "linear", delay: 0.3 }}
               viewport={{ once: false }}
             >
-              <Card className="w-full h-full md:w-[440px] bg-transparent p-8 border border-[#008080] mb-4">
+              <Card className="w-full h-full md:w-[440px] bg-transparent p-8 border border-[#007BFF] mb-4">
                 <h3 className="mb-4 font-semibold text-2xl">Enterprise</h3>
                 <h1 className="text-black text-4xl mb-2 font-regular">
                   {isYearlyBilling ? "Custom" : "Custom"}
@@ -810,13 +529,13 @@ function Index() {
 
                 <Button
                   variant="bordered"
-                  className="border-[#008080] py-6 border-1 mb-6"
-                  onClick={() => {
-                    //subscribeUser();
-                    window.location.href = "mailto:info@vetmemos.com";
-                  }}
+                  className="border-[#007BFF] py-6 border-1 mb-6"
+                  // onClick={() => {
+                  //   //subscribeUser();
+                  //   window.location.href = "mailto:info@vetmemos.com";
+                  // }}
                 >
-                  <p className="text-[#008080] text-lg font-light">
+                  <p className="text-[#007BFF] text-lg font-light">
                     {getPlan(userData?.roles || []) === "Enterprise"
                       ? "Active"
                       : "Contact Us"}
