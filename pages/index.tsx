@@ -42,7 +42,10 @@ import {
   isPlusUser,
   userLoggedin,
 } from "@/application/utils/functions";
-import { startUserSubcription, updateUserSubcription } from "@/application/api/apis";
+import {
+  startUserSubcription,
+  updateUserSubcription,
+} from "@/application/api/apis";
 import { toast } from "react-toastify";
 import { Router, useRouter } from "next/router";
 
@@ -99,9 +102,9 @@ function Index() {
   }, []);
 
   const subscribeUser = async () => {
-    if(isLogedin==false){
-     router.push("auth/login");
-     return;
+    if (isLogedin == false) {
+      router.push("auth/login");
+      return;
     }
     if (isPlusUser(!isYearlyBilling) == false) {
       try {
@@ -137,69 +140,20 @@ function Index() {
       <section>
         <div className="flex flex-col lg:flex-row h-full bg-[#FAF9F6] overflow-x-hidden">
           {/* Content */}
-          <div className="flex-1 flex flex-col px-6 py-16 md:py-32 md:px-24 lg:px-32">
-            <motion.button
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.7 }}
-              viewport={{ once: false }}
-              className="flex items-center justify-between gap-4 py-2 px-4 bg-[#FAE5D3] rounded-full mb-8 lg:mb-0 lg:w-[400px] w-80"
-            >
-              <p className="text-[#808080] text-xs lg:text-sm">
-                Learn how AI can help you with documentation.
-              </p>
-              <div className="bg-[#FBEADA] px-4 rounded-full p-2">
-                <Image src={arrowright} alt="" />
-              </div>
-            </motion.button>
+          <div className="flex-1 flex flex-col px-6 py-16 md:py-20 md:px-16 lg:px-32">
+            <h1 className="text-4xl lg:text-7xl font-semibold mt-4 md:mt-10 mb-4">
+              Streamline Your Medical Documentation with <span>MedMemo</span>
+            </h1>
 
-            <motion.h1
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.7 }}
-              viewport={{ once: false }}
-              className="text-4xl lg:text-7xl font-semibold mt-4 md:mt-16 mb-4"
-            >
-              Innovating Veterinary Documentation!
-            </motion.h1>
-            <motion.div
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.5 }}
-              viewport={{ once: false }}
-            >
-              <Image src={slash} alt="slash" />
-            </motion.div>
-            <motion.p
-              variants={{
-                hidden: { y: 60, opacity: 0 },
-                visible: { y: 0, opacity: 1 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ ease: "linear", delay: 0.4 }}
-              viewport={{ once: false }}
-              className="text-lg lg:text-2xl text-[#808080] mt-6"
-            >
-              Transform your veterinary practice with cutting-edge technology.
-              Simplify documentation, enhance care, one pet at a time.
-            </motion.p>
+            <p className="text-lg lg:text-2xl text-[#808080] mt-6">
+              It allows doctors to record, store, and access patient information
+              efficiently and securely. We aim to reduce paperwork, enhance
+              patient care.
+            </p>
 
             <div className="flex items-center gap-4 mt-20">
               <Link href={"/auth/login"}>
-                <Button className="bg-[#008080] px-8 py-6">
+                <Button radius="sm" className="bg-[#007BFF] px-8 py-6">
                   <h1 className="text-white font-semibold">Get Started</h1>
                 </Button>
               </Link>
@@ -220,7 +174,7 @@ function Index() {
             whileInView="visible"
             transition={{ ease: "linear", delay: 0.7 }}
             viewport={{ once: false }}
-            className="flex-1 bg-cover bg-center relative mb-10 md:mb-0 md:mt-32"
+            className="flex-1 bg-cover bg-center relative mb-10 md:mb-0 md:mt-20"
           >
             <Image src={doc} alt="Background" width={600} height={600} />
           </motion.div>
