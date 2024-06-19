@@ -251,7 +251,7 @@ function Index() {
               <div className="flex justify-center items-center bg-[#E5E8EC] rounded-full p-1 px-1">
                 <div
                   className={`cursor-pointer mr-4 px-2 ${activeTab === "transcript"
-                      ? "bg-[#B7D3D6] rounded-full py-2 px-4 text-black font-semibold"
+                      ? "bg-[#a0c0e2] rounded-full py-2 px-4 text-black font-semibold"
                       : "text-gray-500"
                     }`}
                   onClick={() => setActiveTab("transcript")}
@@ -285,7 +285,7 @@ function Index() {
                 </Button>
                 {
                   activeTab === "note" &&
-                  <Button className=" px-6 hidden md:flex bg-[#008080]" onClick={() => copyAllNote()}>
+                  <Button className=" px-6 hidden md:flex bg-[#007BFF]" onClick={() => copyAllNote()}>
                     <Image src={copy2} alt="copy" />
                     <h1 className="text-white font-semibold">Copy Note</h1>
                   </Button>

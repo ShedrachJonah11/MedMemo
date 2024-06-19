@@ -52,7 +52,7 @@ const PageData = ({
   generateAutoNote,
   gnote,
   setGNote,
-  rename
+  rename,
 }: {
   activeTab: any;
   id: any;
@@ -61,7 +61,7 @@ const PageData = ({
   generateAutoNote: any;
   gnote: any;
   setGNote: any;
-  rename:any;
+  rename: any;
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
@@ -228,7 +228,7 @@ const PageData = ({
       // Handle the response from the server
       //console.log("Upload successful:", response.data);
       //insertTranscriptDB(file.name,"",response.data.status_id,"","",getCurrentDateTime())
-      const formattedData = response.data.transcription.map((entry:any) => {
+      const formattedData = response.data.transcription.map((entry: any) => {
         const text = entry.transcript;
         const date = `${entry.start}-${entry.end}`;
         return { text, date };
@@ -284,7 +284,6 @@ const PageData = ({
     loadDocument();
   };
 
-
   return (
     <div className="relative h-full">
       {activeTab === "transcript" &&
@@ -296,7 +295,7 @@ const PageData = ({
               <Card className="w-full lg:w-[400px]">
                 <CardHeader className="flex justify-between items-center mt-2">
                   <div className="flex">
-                  {editTitle ? (
+                    {editTitle ? (
                       <input
                         type="text"
                         value={titleValue}
@@ -374,7 +373,7 @@ const PageData = ({
                       <Button
                         onClick={startRecording}
                         size="lg"
-                        className="w-full md:w-[356px] bg-[#008080] mt-10"
+                        className="w-full md:w-[356px] bg-[#007BFF] mt-10"
                       >
                         <Image src={record} alt="" />
                         <h1 className="text-white font-bold">
@@ -397,7 +396,7 @@ const PageData = ({
                       >
                         <div className="flex justify-center  mt-2">
                           <Image src={doc} alt="" className="mr-2" />
-                          <h1 className="font-semibold text-[#008080]">
+                          <h1 className="font-semibold text-[#007BFF]">
                             Upload Recordings
                           </h1>
                         </div>
@@ -430,7 +429,7 @@ const PageData = ({
             </div>
             <Button
               size="lg"
-              className="button bg-[#008080] text-white fixed right-5 bottom-10"
+              className="button bg-[#007BFF] text-white fixed right-5 bottom-10"
               onClick={() => {
                 generateMainNote();
                 setActiveTab("note");
@@ -454,7 +453,12 @@ const PageData = ({
                   </div>
                   <button
                     className="absolute bottom-4 left-6"
-                    onClick={() => copyToClipboard(renderSubjective(gnote.objective,true)?.toString() || '')}
+                    onClick={() =>
+                      copyToClipboard(
+                        renderSubjective(gnote.objective, true)?.toString() ||
+                          ""
+                      )
+                    }
                   >
                     <Image src={copy} alt="" />
                   </button>
@@ -470,7 +474,11 @@ const PageData = ({
                   </div>
                   <button
                     className="absolute bottom-4 left-6"
-                    onClick={() => copyToClipboard(renderObjective(gnote.objective,true)?.toString() || '')}
+                    onClick={() =>
+                      copyToClipboard(
+                        renderObjective(gnote.objective, true)?.toString() || ""
+                      )
+                    }
                   >
                     <Image src={copy} alt="" />
                   </button>
@@ -492,7 +500,14 @@ const PageData = ({
                     <button
                       type="button"
                       className="absolute bottom-4 left-6"
-                      onClick={() => copyToClipboard(renderSubjective(gnote.assessment,true)?.toString() || '')}
+                      onClick={() =>
+                        copyToClipboard(
+                          renderSubjective(
+                            gnote.assessment,
+                            true
+                          )?.toString() || ""
+                        )
+                      }
                     >
                       <Image src={copy} alt="" />
                     </button>
@@ -511,7 +526,11 @@ const PageData = ({
                     <button
                       type="button"
                       className="absolute bottom-4 left-6"
-                      onClick={() => copyToClipboard(renderSubjective(gnote.plan,true)?.toString() || '')}
+                      onClick={() =>
+                        copyToClipboard(
+                          renderSubjective(gnote.plan, true)?.toString() || ""
+                        )
+                      }
                     >
                       <Image src={copy} alt="" />
                     </button>
