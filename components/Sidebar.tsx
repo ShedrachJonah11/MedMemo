@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../public/vetmemo.svg";
+import logo from "../public/Logo.svg";
 import arrowback from "../public/indent-decrease.svg";
 import plus from "../public/plus.svg";
 import star from "../public/stars-02.svg";
@@ -47,7 +47,7 @@ interface SliderProps {
   resetState: () => void;
   handleHistoryCardClick: (id: any) => void;
   activeId: any;
-  rename:any;
+  rename: any;
 }
 
 const Sidebar: React.FC<SliderProps> = ({
@@ -56,7 +56,7 @@ const Sidebar: React.FC<SliderProps> = ({
   resetState,
   handleHistoryCardClick,
   activeId,
-  rename
+  rename,
 }) => {
   const router = useRouter();
   const {
@@ -276,47 +276,55 @@ const Sidebar: React.FC<SliderProps> = ({
               <h4 className="font-regular text-[#8B909A] mt-4 text-sm">
                 {date}
               </h4>
-              {groupedDocuments[date].reverse().map((document: any, index: number) => (
-                <button
-                  key={document.id} // Assuming each document has a unique ID
-                  className={`bg-[#E5E8EC] rounded-xl h-16 w-full p-3 mt-4 ${
-                    hoveredStates[index] ? "bg-gray-300" : ""
-                  } ${activeId === document.id ? "active" : ""}`}
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={() => handleMouseLeave(index)}
-                  onClick={() => {
-                    handleHistoryClick(document.id);
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h1 className="font-normal mr-6 text-left" id={"history-"+document.id}>
-                        {document.title}
-                      </h1>
-                      <p className="font-light text-[#808080] text-sm text-left">
-                        {document.date} . {document?.duration || ""}
-                      </p>
-                    </div>
-
-                    {hoveredStates[index] && isPopoverEnabled && (
+              {groupedDocuments[date]
+                .reverse()
+                .map((document: any, index: number) => (
+                  <button
+                    key={document.id} // Assuming each document has a unique ID
+                    className={`bg-[#E5E8EC] rounded-xl h-16 w-full p-3 mt-4 ${
+                      hoveredStates[index] ? "bg-gray-300" : ""
+                    } ${activeId === document.id ? "active" : ""}`}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}
+                    onClick={() => {
+                      handleHistoryClick(document.id);
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
                       <div>
-                      <button type="button" onClick={()=>rename(true)}>
-                        <Image src={edit} alt="trash" style={{marginRight:"10px"}} />
-                      </button>
-                      <button type="button" onClick={onDeleteModalOpen}>
-                        <Image src={trash} alt="trash" />
-                      </button>
-                      
+                        <h1
+                          className="font-normal mr-6 text-left"
+                          id={"history-" + document.id}
+                        >
+                          {document.title}
+                        </h1>
+                        <p className="font-light text-[#808080] text-sm text-left">
+                          {document.date} . {document?.duration || ""}
+                        </p>
                       </div>
-                    )}
-                    <DeleteModal
-                      isOpen={isDeleteModalOpen}
-                      onClose={onDeleteModalClose}
-                      callback={deleteRecord}
-                    />
-                  </div>
-                </button>
-              ))}
+
+                      {hoveredStates[index] && isPopoverEnabled && (
+                        <div>
+                          <button type="button" onClick={() => rename(true)}>
+                            <Image
+                              src={edit}
+                              alt="trash"
+                              style={{ marginRight: "10px" }}
+                            />
+                          </button>
+                          <button type="button" onClick={onDeleteModalOpen}>
+                            <Image src={trash} alt="trash" />
+                          </button>
+                        </div>
+                      )}
+                      <DeleteModal
+                        isOpen={isDeleteModalOpen}
+                        onClose={onDeleteModalClose}
+                        callback={deleteRecord}
+                      />
+                    </div>
+                  </button>
+                ))}
             </div>
           ))}
       </div>
