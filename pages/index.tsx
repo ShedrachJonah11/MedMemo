@@ -141,17 +141,48 @@ function Index() {
         <div className="flex flex-col lg:flex-row h-full bg-[#FAF9F6] overflow-x-hidden">
           {/* Content */}
           <div className="flex-1 flex flex-col px-6 py-16 md:py-20 md:px-16 lg:px-32">
-            <h1 className="text-4xl lg:text-7xl font-semibold mt-4 md:mt-10 mb-4">
-              Streamline Your Medical Documentation with <span>MedMemo</span>
-            </h1>
+            <motion.h1
+              variants={{
+                hidden: { y: 60, opacity: 0 },
+                visible: { y: 0, opacity: 1 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ ease: "linear", delay: 0.7 }}
+              viewport={{ once: false }}
+              className="text-4xl lg:text-7xl font-normal mt-4 md:mt-10 mb-4"
+            >
+              Streamline Your Medical Documentation with{" "}
+              <span className="text-[#007BFF]">MedMemo</span>
+            </motion.h1>
 
-            <p className="text-lg lg:text-2xl text-[#808080] mt-6">
+            <motion.p
+              variants={{
+                hidden: { y: 60, opacity: 0 },
+                visible: { y: 0, opacity: 1 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ ease: "linear", delay: 0.7 }}
+              viewport={{ once: false }}
+              className="text-lg lg:text-xl text-[#808080] mt-6"
+            >
               It allows doctors to record, store, and access patient information
               efficiently and securely. We aim to reduce paperwork, enhance
               patient care.
-            </p>
+            </motion.p>
 
-            <div className="flex items-center gap-4 mt-20">
+            <motion.div
+              variants={{
+                hidden: { y: 60, opacity: 0 },
+                visible: { y: 0, opacity: 1 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ ease: "linear", delay: 0.7 }}
+              viewport={{ once: false }}
+              className="flex items-center gap-4 mt-20"
+            >
               <Link href={"/auth/login"}>
                 <Button radius="sm" className="bg-[#007BFF] px-8 py-6">
                   <h1 className="text-white font-semibold">Get Started</h1>
@@ -161,7 +192,7 @@ function Index() {
                 <Link href={"/auth/login"}>Try Demo</Link>
               </button>
               <Image src={arrowright} alt="" />
-            </div>
+            </motion.div>
           </div>
 
           {/* Background Image */}
