@@ -14,7 +14,7 @@ function index() {
       <Nav />
       <div>
         {/* Main section */}
-        <div className="h-full flex flex-col items-center bg-[#008080]">
+        <div className="h-full flex flex-col items-center bg-[#007BFF]">
           <h1 className="text-white text-5xl font-bold mt-10">Contact Us</h1>
           <p className="mt-4 mb-6 text-center text-white font-light text-xl">
             Not sure what you need? The team at VetMemos will be happy to listen
@@ -75,7 +75,7 @@ function index() {
                     </div>
                   </div>
 
-                  <Button className="text-white mt-6 bg-[#008080]">
+                  <Button radius="sm" className="text-white mt-6 bg-[#007BFF]">
                     Send Message
                   </Button>
                 </div>
@@ -99,7 +99,7 @@ function index() {
                   </p>
                 </div>
                 <div className="mt-6 md:mt-0">
-                  <Button size="lg" className="bg-[#008080]">
+                  <Button radius="sm" size="lg" className="bg-[#007BFF]">
                     <h1 className="font-medium text-white">Try Demo</h1>
                     <Image src={arrowright} alt="" />
                   </Button>
