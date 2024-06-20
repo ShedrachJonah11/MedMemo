@@ -29,14 +29,14 @@ function Index() {
     }
   };
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
-      <Image
+    <div className="relative signupBg h-screen flex items-center justify-center overflow-hidden">
+      {/* <Image
         src={bg}
         alt="Background"
         layout="fill"
         objectFit="cover"
         priority={true}
-      />
+      /> */}
       <Card className="w-96 sm:w-[450px]  p-6 bg-opacity-75 ">
         <CardBody className="flex flex-col items-center">
           <Image src={lock} alt="" className="mt-2" />
@@ -66,7 +66,7 @@ function Index() {
 
             <Button
               size="lg"
-              className="w-full mt-6 bg-[#008080]"
+              className="w-full mt-6 bg-[#007BFF]"
               onClick={() => {
                 resetPass();
               }}

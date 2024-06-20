@@ -38,14 +38,14 @@ export default function Verify() {
   }, [query.token]);
 
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
-      <Image
+    <div className="relative signupBg h-screen flex items-center justify-center overflow-hidden">
+      {/* <Image
         src={bg}
         alt="Background"
         layout="fill"
         objectFit="cover"
         priority={true}
-      />
+      /> */}
       <Card className="w-96 sm:w-[450px] p-6 bg-opacity-75">
         <CardBody className="flex flex-col items-center">
           <Image src={mail} alt="" className="mt-2" />
@@ -61,7 +61,7 @@ export default function Verify() {
           </p>
 
           <Link href={"/auth/login"} className="w-full">
-            <Button size="lg" className="w-full mt-2 bg-[#008080]">
+            <Button size="lg" className="w-full mt-2 bg-[#007BFF]">
               <p className="text-white text-semibold">Start an encounter</p>
             </Button>
           </Link>
