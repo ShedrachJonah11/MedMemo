@@ -201,7 +201,7 @@ function Index() {
             }}
             disabled={isLoginButtonDisabled}
             style={{
-              backgroundColor: isLoginButtonDisabled ? "#CCCCCC" : "#007BFF",
+              backgroundColor: isLoginButtonDisabled ? "#9fbddd" : "#007BFF",
             }}
           >
             <p className="text-white text-semibold ">Sign Up</p>
@@ -226,7 +226,7 @@ function Index() {
           <div className="flex justify-center items-center">
             <p className="flex">
               Have an account already?
-              <Link href={"/auth/login"} className="ml-1 text-[#008080]">
+              <Link href={"/auth/login"} className="ml-1 text-[#007BFF]">
                 login
               </Link>
             </p>

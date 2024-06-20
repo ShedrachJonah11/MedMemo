@@ -44,7 +44,7 @@ function Index() {
         toast.error("Please enter your email.");
         return;
       }
-      if (userData.username.trim().length<2) {
+      if (userData.username.trim().length < 2) {
         toast.error("Please enter a valid email address.");
         return;
       }
@@ -68,10 +68,10 @@ function Index() {
           if (data.detail === "LOGIN_BAD_CREDENTIALS") {
             // Handle invalid password error
             setError("Incorrect email/password");
-          } else if(data.detail==="LOGIN_USER_NOT_VERIFIED") {
+          } else if (data.detail === "LOGIN_USER_NOT_VERIFIED") {
             // Handle other error scenarios
             setError("Email not verified");
-          }else{
+          } else {
             setError("Unknown Error");
           }
         } else {
@@ -150,7 +150,7 @@ function Index() {
             onClick={login}
             disabled={isLoginButtonDisabled}
             style={{
-              backgroundColor: isLoginButtonDisabled ? "#CCCCCC" : "#007BFF",
+              backgroundColor: isLoginButtonDisabled ? "#9fbddd" : "#007BFF",
             }}
           >
             <p className="text-white text-semibold ">Login</p>
@@ -160,14 +160,6 @@ function Index() {
             <div className="flex items-center">
               <Checkbox defaultSelected />
               <p className="ml-2 text-xs md:text-sm">Remember for 30 days</p>
-            </div>
-            <div>
-              <Link
-                href={"/auth/forgotpassword"}
-                className="text-[#008080] text-xs md:text-sm"
-              >
-                Forgot password
-              </Link>
             </div>
           </div>
 
@@ -183,7 +175,7 @@ function Index() {
           <div className="flex justify-center items-center">
             <p className="flex">
               Don&apos;t have an account already?
-              <Link href={"/auth/signup"} className="ml-1 text-[#008080]">
+              <Link href={"/auth/signup"} className="ml-1 text-[#007BFF]">
                 Signup
               </Link>
             </p>
